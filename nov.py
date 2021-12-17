@@ -53,6 +53,8 @@ async def on_message(message):
             await message.add_reaction("<:agreentick:875244017833639956>")
             # if message.reactions.count == 4:
             #     await message.channel.send(helperResponseC)
+    if message.content == "yeah boi":
+        await message.channel.send("yeah BOIII")
     
 
 @bot.event
