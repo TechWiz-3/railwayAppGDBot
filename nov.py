@@ -6,7 +6,6 @@ import json
 from discord.utils import get
 import requests
 from discord.ext import commands
-from discord.mentions import A
 
 bot = commands.Bot(command_prefix=".")
 
