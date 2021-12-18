@@ -6,8 +6,13 @@ import json
 from discord.utils import get
 import requests
 from discord.ext import commands
+from dotenv import load_dotenv
+import os
 
 bot = commands.Bot(command_prefix=".")
+
+load_dotenv()
+token = os.getenv("token")
 
 helperResponseA = ["Alright, Gravity Destroyers, sending help for you now", "Help? Someone needs help? Right away bois.", "I was sleeping, did you have to wake me up with this help request? Send help now.", "Help? Only God can help you!!", "Aww, you need help fam. Dw I'm here for you", "Help request that's noice", "HELP??? SURE MATE", "K alerting the martian embassy help is required"]
 helperResponseB = "**Help request**\n> Please react with <:agreentick:875244017833639956> below this message to enable this ping request, 3 votes excluding me are required unless a moderator approves the request."
@@ -52,7 +57,7 @@ async def about(ctx):
     await ctx.send("SURE I'll do that hahahaha")
     async with ctx.typing():
         await asyncio.sleep(10)
-    await ctx.send("*Ladies and Gentlemen, skinny and stout,*\n*I\’ll tell you a tale I know nothing about*\n*The Admission is free, so pay at the door,*\n*Now pull up a chair and sit on the floor*")
+    await ctx.send("*Ladies and Gentlemen, skinny and stout,*\n*I’ll tell you a tale I know nothing about*\n*The Admission is free, so pay at the door,*\n*Now pull up a chair and sit on the floor*")
     async with ctx.typing():
         await asyncio.sleep(10)
     await ctx.send("*On a bright day in the middle of the night*\n*Two dead boys got up to fight*\n*Back to back they faced eachother*\n*Drew their swords and shot eachother*\n*The deaf policeman heard the noise and saved the lives of the two dead boys*\n*If you don't believe my story is true*\n*Ask the blind man, he saw it too*")
@@ -64,7 +69,7 @@ async def about(ctx):
     await ctx.send("WELL, ||you'd be right|| just after a little wild ride ;) ;)")
     async with ctx.typing():
         await asyncio.sleep(5)
-    await ctx.send("I'm the Gravity Destroyers Bot :)\nI help you guys do your stuff lol\nI'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\nI'm not a chat bot, I just have clever coding")
+    await ctx.send("> I'm the Gravity Destroyers Bot :)\n> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
 
 @bot.event
 async def on_message(message):
@@ -118,7 +123,7 @@ async def on_reaction_add(reaction, user):
 bot.add_command(helperping)
 bot.add_command(compliment)
 bot.add_command(about)
-bot.run("ODg5MDQyMjA3NTQ0MzQwNTEx.YUbfEw.ZT6JbqB8EPZdoxekpY6GFfMl2F8")
+bot.run(token)
 
 # def count(message):
 #     for reaction in message.reactions:
