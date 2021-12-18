@@ -48,8 +48,8 @@ async def about(ctx):
     async with ctx.typing():
         # do expensive stuff here
         await asyncio.sleep(3)
-        ctx.send("Oh hey, you wanna know more about me??")
-    ctx.send("SURE I'll do that hahahaha")
+    await ctx.send("Oh hey, you wanna know more about me??")
+    await ctx.send("SURE I'll do that hahahaha")
 
 @bot.event
 async def on_message(message):
