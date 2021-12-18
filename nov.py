@@ -62,6 +62,9 @@ async def about(ctx):
     async with ctx.typing():
         await asyncio.sleep(5)
     await ctx.send("WELL, ||you'd be right|| just after a little wild ride ;) ;)")
+    async with ctx.typing():
+        await asyncio.sleep(3)
+    await ctx.send("I'm the Gravity Destroyers Bot :)\nI help you guys do your stuff lol\nI'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\nI'm not a chat bot, I just have clever coding")
 
 @bot.event
 async def on_message(message):
