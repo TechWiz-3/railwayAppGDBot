@@ -50,6 +50,18 @@ async def about(ctx):
         await asyncio.sleep(3)
     await ctx.send("Oh hey, you wanna know more about me??")
     await ctx.send("SURE I'll do that hahahaha")
+    async with ctx.typing():
+        await asyncio.sleep(3)
+    await ctx.send("Ladies and Gentlemen, skinny and stout,\nI\’ll tell you a tale I know nothing about\nThe Admission is free, so pay at the door,\nNow pull up a chair and sit on the floor")
+    async with ctx.typing():
+        await asyncio.sleep(3)
+    await ctx.send("On a bright day in the middle of the night\nTwo dead boys got up to fight\nBack to back they face eachother\nDrew their swords and shot eachother\nThe deaf policeman heard the noise and saved the lives of the two dead boys\nIf you don't believe my story is true\nAsk the blind man, he saw it too")
+    async with ctx.typing():
+        await asyncio.sleep(5)
+    await ctx.send("HAHAHA, did you really think I'd give you an answer?!!")
+    async with ctx.typing():
+        await asyncio.sleep(5)
+    await ctx.send("WELL, ||you'd be right|| just after a little wild ride ;) ;)")
 
 @bot.event
 async def on_message(message):
