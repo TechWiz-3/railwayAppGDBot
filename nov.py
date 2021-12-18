@@ -52,10 +52,10 @@ async def about(ctx):
     await ctx.send("SURE I'll do that hahahaha")
     async with ctx.typing():
         await asyncio.sleep(10)
-    await ctx.send("Ladies and Gentlemen, skinny and stout,\nI\’ll tell you a tale I know nothing about\nThe Admission is free, so pay at the door,\nNow pull up a chair and sit on the floor")
+    await ctx.send("*Ladies and Gentlemen, skinny and stout,*\n*I\’ll tell you a tale I know nothing about*\n*The Admission is free, so pay at the door,*\n*Now pull up a chair and sit on the floor*")
     async with ctx.typing():
         await asyncio.sleep(10)
-    await ctx.send("On a bright day in the middle of the night\nTwo dead boys got up to fight\nBack to back they face eachother\nDrew their swords and shot eachother\nThe deaf policeman heard the noise and saved the lives of the two dead boys\nIf you don't believe my story is true\nAsk the blind man, he saw it too")
+    await ctx.send("*On a bright day in the middle of the night*\n*Two dead boys got up to fight*\n*Back to back they faced eachother*\n*Drew their swords and shot eachother*\n*The deaf policeman heard the noise and saved the lives of the two dead boys*\n*If you don't believe my story is true*\n*Ask the blind man, he saw it too*")
     async with ctx.typing():
         await asyncio.sleep(15)
     await ctx.send("HAHAHA, did you really think I'd give you an answer?!!")
@@ -63,7 +63,7 @@ async def about(ctx):
         await asyncio.sleep(5)
     await ctx.send("WELL, ||you'd be right|| just after a little wild ride ;) ;)")
     async with ctx.typing():
-        await asyncio.sleep(3)
+        await asyncio.sleep(5)
     await ctx.send("I'm the Gravity Destroyers Bot :)\nI help you guys do your stuff lol\nI'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\nI'm not a chat bot, I just have clever coding")
 
 @bot.event
@@ -77,6 +77,10 @@ async def on_message(message):
             #     await message.channel.send(helperResponseC)
     if message.content == "yeah boi":
         await message.channel.send("yeah BOIII")
+    if "nice" in message.content.lower():
+        emoji = discord.utils.get(bot.emojis, name='GESvibing')
+        await message.channel.send(str(emoji))
+        
     
 
 @bot.event
