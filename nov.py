@@ -43,6 +43,13 @@ async def helperping(ctx, usermention, *,messageid):
     await ctx.send(helperResponseB)#889042207544340511
     
     #await ctx.channel.purge(1)
+@commands.command()
+async def about(ctx):
+    async with ctx.typing():
+        # do expensive stuff here
+        await asyncio.sleep(3)
+    ctx.send("Oh hey, you wanna know more about me??")
+    ctx.send("SURE I'll do that hahahaha")
 
 @bot.event
 async def on_message(message):
@@ -91,6 +98,7 @@ async def on_reaction_add(reaction, user):
             
 bot.add_command(helperping)
 bot.add_command(compliment)
+bot.add_command(about)
 bot.run("ODg5MDQyMjA3NTQ0MzQwNTEx.YUbfEw.ZT6JbqB8EPZdoxekpY6GFfMl2F8")
 
 # def count(message):
