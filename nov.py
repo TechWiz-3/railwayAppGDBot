@@ -18,6 +18,7 @@ helperResponseA = ["Alright, Gravity Destroyers, sending help for you now", "Hel
 helperResponseB = "**Help request**\n> Please react with <:agreentick:875244017833639956> below this message to enable this ping request, 3 votes excluding me are required unless a moderator approves the request."
 helperResponseC = ["Alrightyyyy, we have authorisation to continue", "Nice bruh, stars have aligned, helper ping APPROVED", "Helper ping incoming", "Martian embassy has responded, we're gonna ping the helpers"]
 helperResponseD = ["Mighty moderators have bypassed the regular authorisation and progressed this help request at the quantum leap speed", "Ohh nice, mods approved this help request.", "Kids, we got mod chads helpin us out", "Mods have approved this help request, now I'm heading back to bed"]
+randomReminders = ["**Community service reminder**\nStop looking at the screen with a dry throat you lazy people :rolling_eyes:", "Stop fidgetting mate, it's annoying", "Right right", "k", "Stop sitting on the computer while you need to go to the bathroom, you know better", "thonking...", "Mind rephrasing that from crazy to english??", "you da man ay", "Public service announcement, SIT PROPERLY PEOPLE\nYall look like monkeys in front of that screen brah", "aww"]
 
 @bot.event
 async def on_ready():
@@ -77,6 +78,10 @@ reddit = 867599777743372299
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)
+    chanceTriggerFunnyTimer = random.randint(1,100)
+    if chanceTriggerFunnyTimer == 20 or chanceTriggerFunnyTimer == 21 or chanceTriggerFunnyTimer == 23:
+        await message.channel.send(random.choice(randomReminders))
+
     #print(message)
     if message.author.id == 889042207544340511:
         if message.content == helperResponseB:
