@@ -86,9 +86,11 @@ async def on_message(message):
     if message.content == "yeah boi":
         await message.channel.send("yeah BOIII")
     if "nice" in message.content.lower():
-        emoji = discord.utils.get(bot.emojis, name='GESvibing')
-        await message.channel.send(str(emoji))
-    if message.channel.id == reddit and message.author.id != bot.id:
+        chance = random.randint(1, 3)
+        if chance == 1:
+            emoji = discord.utils.get(bot.emojis, name='GESvibing')
+            await message.channel.send(str(emoji))
+    if message.channel.id == reddit and message.author.id != 889042207544340511:
         await message.channel.send("test")
         await asyncio.sleep(2)
         
