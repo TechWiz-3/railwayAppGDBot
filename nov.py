@@ -91,7 +91,7 @@ async def on_message(message):
             emoji = discord.utils.get(bot.emojis, name='GESvibing')
             await message.channel.send(str(emoji))
     if message.channel.id == reddit and message.author.id != 889042207544340511:
-        await message.channel.send("<@870509092974759946> New reddit post :)")
+        await message.channel.send("<@&870509092974759946> New reddit post :)")
         
 
         
