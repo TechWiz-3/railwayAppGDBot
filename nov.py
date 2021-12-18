@@ -71,6 +71,9 @@ async def about(ctx):
         await asyncio.sleep(5)
     await ctx.send("> I'm the Gravity Destroyers Bot :)\n> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
 
+
+reddit = 867599777743372299
+
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)
@@ -85,6 +88,11 @@ async def on_message(message):
     if "nice" in message.content.lower():
         emoji = discord.utils.get(bot.emojis, name='GESvibing')
         await message.channel.send(str(emoji))
+    if message.channel.id == reddit and message.author.id != bot.id:
+        await message.channel.send("test")
+        await asyncio.sleep(2)
+        
+
         
     
 
