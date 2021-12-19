@@ -89,6 +89,7 @@ reddit = 867599777743372299
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)
+    meanResponse = False
     if message.channel.id in randomResponseChannels:
         chanceTriggerFunnyTimer = random.randint(1,100)
         if chanceTriggerFunnyTimer == 20 or chanceTriggerFunnyTimer == 21 or chanceTriggerFunnyTimer == 23:
@@ -109,11 +110,13 @@ async def on_message(message):
             await message.channel.send(str(emoji))
     for mention in message.mentions:
         if mention.id == 889042207544340511:
-            if meanWords in message.content:
-                await message.reply("NO NO NO and NO\nALSO.... NO")
-            elif message.author.id == 760345587802964010:
+            for meanWord in meanWords:
+                if meanWord in message.content.lower():
+                    await message.reply("NO NO NO and NO\nALSO.... NO")
+                    meanResponse==True
+            if message.author.id == 760345587802964010 and meanResponse == False:
                 await message.channel.send(random.choice(zacResponses))
-            else:
+            elif meanResponse == False:
                 await message.channel.send(random.choice(mentionResponses))
     if message.channel.id == reddit and message.author.id != 889042207544340511:
         await message.channel.send("<@&870509092974759946> New reddit post :)")
