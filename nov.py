@@ -109,10 +109,10 @@ async def on_message(message):
             await message.channel.send(str(emoji))
     for mention in message.mentions:
         if mention.id == 889042207544340511:
-            if message.author.id == 760345587802964010:
-                await message.channel.send(random.choice(zacResponses))
-            elif meanWords in message.content:
+            if meanWords in message.content:
                 await message.reply("NO NO NO and NO\nALSO.... NO")
+            elif message.author.id == 760345587802964010:
+                await message.channel.send(random.choice(zacResponses))
             else:
                 await message.channel.send(random.choice(mentionResponses))
     if message.channel.id == reddit and message.author.id != 889042207544340511:
