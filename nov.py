@@ -113,7 +113,7 @@ async def on_message(message):
             for meanWord in meanWords:
                 if meanWord in message.content.lower():
                     await message.reply("NO NO NO and NO\nALSO.... NO")
-                    meanResponse==True
+                    meanResponse=True
             if message.author.id == 760345587802964010 and meanResponse == False:
                 await message.channel.send(random.choice(zacResponses))
             elif meanResponse == False:
