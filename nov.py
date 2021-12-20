@@ -86,7 +86,7 @@ async def about(ctx):
 
 @commands.command()
 async def testing(ctx):
-    ctx.send(ctx.guild)
+    await ctx.send(ctx.guild)
 
 reddit = 867599777743372299
 
