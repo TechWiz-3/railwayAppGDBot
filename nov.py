@@ -22,7 +22,7 @@ randomReminders = ["**Community service reminder**\nStop looking at the screen w
 randomResponseChannels = [867597533458202647, 867600399879372820, 867600420246913054, 867601016006770718, 867605832401289247, 868447164999815229, 874471834370850826, 910012458943533057, 887197847240446004]
 zacResponses = ["Yes, my man, my king, my owner", "Shut up Zac ok? I'm busy doin stuff", ":heart:", "You da best Zackie", ":rolling_eyes:", "Eh don't mind him guys that's just Zac", "Don't worry about him guys", "How may I be of service fine owner?", "Mate you really gotta fix my coding NOW, there's something that's annoying me in there OK????", "I wuv Gravity Destroyers :star_struck:", "You da man"]
 mentionResponses = ["Hello :) I see you've mentioned me, thanks for doing that but I'm not chat bot so I can't really help there", "Hallo", "Me not chatbot sorry :(", "You talkin trash over there brtoha?", ":)", "I'm not chatbot fine sir, however I assure you there are plenty of Gravity Destroyers willing to talk", ":thinking:"]
-meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you"]
+meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you", "hate you"]
 
 @bot.event
 async def on_ready():
@@ -68,7 +68,7 @@ async def about(ctx):
     await asyncio.sleep(5)
     async with ctx.typing():
         await asyncio.sleep(7)
-    await ctx.send("*On a bright day in the middle of the night*\n*Two dead boys got up to fight*\n*Back to back they faced eachother*\n*Drew their swords and shot eachother*\n*The deaf policeman heard the noise and saved the lives of the two dead boys*\n*If you don't believe my story is true*\n*Ask the blind man, he saw it too*")
+    await ctx.send("*On a bright day in the middle of the night*\n*Two dead boys got up to fight*\n*Back to back they faced eachother*\n*Drew their swords and shot eachother*\n*The deaf policeman heard the noise*\n*And saved the lives of the two dead boys*\n*If you don't believe my story is true*\n*Ask the blind man, he saw it too*")
     await asyncio.sleep(3)
     async with ctx.typing():
         await asyncio.sleep(3)    
@@ -85,12 +85,11 @@ async def about(ctx):
     await ctx.send("> I'm the Gravity Destroyers Bot :)\n> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
 
 server = "Gravity Destroyers SW"
-@commands.command()
+@bot.command()
 async def testing(ctx):
     for guild in bot.guilds:
-        # await ctx.send(guild)
-        if guild == "Gravity Destroyers SW":
-            await ctx.send(guild)
+        if str(guild) == "Gravity Destroyers SW":
+            await ctx.send(str(guild))
             
 
 reddit = 867599777743372299
@@ -165,7 +164,7 @@ async def on_reaction_add(reaction, user):
 
                     
             
-bot.add_command(testing)
+# bot.add_command(testing)
 bot.add_command(helperping)
 bot.add_command(compliment)
 bot.add_command(about)
