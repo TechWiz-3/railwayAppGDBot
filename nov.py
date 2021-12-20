@@ -84,9 +84,11 @@ async def about(ctx):
         await asyncio.sleep(5)
     await ctx.send("> I'm the Gravity Destroyers Bot :)\n> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
 
+server = "Gravity Destroyers SW"
 @commands.command()
 async def testing(ctx):
     await ctx.send(ctx.guild)
+    await ctx.send(server.roles)
 
 reddit = 867599777743372299
 
