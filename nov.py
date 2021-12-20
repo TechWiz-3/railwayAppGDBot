@@ -88,7 +88,10 @@ server = "Gravity Destroyers SW"
 @commands.command()
 async def testing(ctx):
     await ctx.send(ctx.guild)
-    await ctx.send(server.roles)
+    for guild in bot.guilds:
+        if guild == server:
+            await ctx.send(guild)
+            await ctx.send(guild.roles)
 
 reddit = 867599777743372299
 
