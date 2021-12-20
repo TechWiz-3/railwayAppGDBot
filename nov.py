@@ -30,6 +30,7 @@ async def on_ready():
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
 
 
+
 @commands.command()
 async def compliment(ctx, user):
     x = requests.get('https://complimentr.com/api')
@@ -83,6 +84,9 @@ async def about(ctx):
         await asyncio.sleep(5)
     await ctx.send("> I'm the Gravity Destroyers Bot :)\n> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
 
+@commands.command()
+async def testing(ctx):
+    ctx.send(ctx.guild)
 
 reddit = 867599777743372299
 
@@ -156,6 +160,7 @@ async def on_reaction_add(reaction, user):
 
                     
             
+bot.add_command(testing)
 bot.add_command(helperping)
 bot.add_command(compliment)
 bot.add_command(about)
