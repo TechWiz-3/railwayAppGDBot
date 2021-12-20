@@ -89,6 +89,7 @@ server = "Gravity Destroyers SW"
 async def testing(ctx):
     await ctx.send(ctx.guild)
     for guild in bot.guilds:
+        await ctx.send(guild)
         if guild == server:
             await ctx.send(guild)
             await ctx.send(guild.roles)
