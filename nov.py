@@ -89,7 +89,7 @@ server = "Gravity Destroyers SW"
 async def testing(ctx):
     for guild in bot.guilds:
         if str(guild) == "Gravity Destroyers SW":
-            await ctx.send(str(guild))
+            await ctx.send(guild.roles)
             
 
 reddit = 867599777743372299
