@@ -90,7 +90,9 @@ async def testing(ctx):
     for guild in bot.guilds:
         if str(guild) == "Gravity Destroyers SW":
             for role in guild.roles:
-                await ctx.send(role)
+                if role.name == "He/Him":
+                    for member in role.members:
+                        ctx.send(str(member.name))
             
 
 reddit = 867599777743372299
