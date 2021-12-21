@@ -93,10 +93,10 @@ async def testing(ctx):
                 print(role)
                 if str(role.name) == "He/Him":
                     print("if was triggered")
-                    for member in role.members:
+                    for member in str(role.members):
                         print(member)
-                        print(member.name)
-                        await ctx.send(str(member.name))
+                        # print(member.name)
+                        # await ctx.send(member.name)
                     break
                 #help me
                         
