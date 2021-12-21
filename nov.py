@@ -98,6 +98,7 @@ async def testing(ctx):
                         print(member.name)
                         await ctx.send(str(member.name))
                     break
+                #help me
                         
             
 
