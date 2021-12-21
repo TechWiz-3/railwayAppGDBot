@@ -92,7 +92,7 @@ async def testing(ctx):
             for role in guild.roles:
                 print(role)
                 
-                if str(role) == "He/Him":
+                if str(role.name) == "He/Him":
                     print("if was triggered")
                     for member in role.members:
                         await ctx.send(str(member.name))
