@@ -90,7 +90,7 @@ async def testing(ctx):
     for guild in bot.guilds:
         if str(guild) == "Gravity Destroyers SW":
             for role in guild.roles:
-                # ctx.send(role)
+                print(role)
                 
                 if str(role.name) == "He/Him":
                     for member in role.members:
