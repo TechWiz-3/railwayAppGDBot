@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 import os
 
 bot = commands.Bot(command_prefix=".")
-slashBot = discord.Bot()
+slashBot = commands.Bot()
 
 @slashBot.slash_command(guild_ids=[864438892736282625])  # create a slash command for the supplied guilds
 async def hello(ctx):
