@@ -47,7 +47,7 @@ async def on_ready():
     print('Bot is ready!')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
 
-@bot.slash_command(guild_ids=[864438892736282625])
+@bot.slash_command(guild_ids=[867597533458202644])
 async def newyeargoal(ctx,*,goal):
     await ctx.respond(f"Yessir\nYour goal is `{goal}`")
     person = ctx.author
