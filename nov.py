@@ -50,11 +50,11 @@ async def on_ready():
 @bot.slash_command(guild_ids=[864438892736282625])
 async def newyeargoal(ctx,*,goal):
     await ctx.respond(f"Yessir\nYour goal is `{goal}`")
-    # person = ctx.author
-    # finalValues = (person, goal)
-    # sql = "INSERT INTO test_goals_2002 (user, goals) VALUES (%s, %s)"
-    # mycursor.execute(sql, finalValues)
-    # mydb.commit()
+    person = ctx.author
+    finalValues = (person, goal)
+    sql = "INSERT INTO test_goals_2002 (user, goals) VALUES (%s, %s)"
+    mycursor.execute(sql, finalValues)
+    mydb.commit()
 
 @commands.command()
 async def compliment(ctx, user):
