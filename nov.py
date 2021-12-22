@@ -8,9 +8,17 @@ import requests
 from discord.ext import commands
 from dotenv import load_dotenv
 import os
+import mysql.connector
+mydb = mysql.connector.connect(
+  host="containers-us-west-23.railway.app",
+  user="root",
+  password="yUWgeMOav9HmGFDqUIXo",
+  database="railway",
+  port="6499"
+)
+mycursor = mydb.cursor()
 
 bot = commands.Bot(command_prefix=".")
-# slashBot = commands.Bot(command_prefix="/")
 
 @bot.slash_command(guild_ids=[867597533458202644])  # create a slash command for the supplied guilds
 async def hello(ctx):
@@ -42,6 +50,11 @@ async def on_ready():
 @bot.slash_command(guild_ids=[864438892736282625])
 async def newyeargoal(ctx,*,goal):
     await ctx.respond(f"Yessir\nYour goal is `{goal}`")
+    person = "ctx.user"
+    finalValues = (person, goal)
+    sql = "INSERT INTO test_goals_2002 (user, goals) VALUES (%s, %s)"
+    mycursor.execute(sql, finalValues)
+    mydb.commit()
 
 @commands.command()
 async def compliment(ctx, user):
