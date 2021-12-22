@@ -10,13 +10,13 @@ from dotenv import load_dotenv
 import os
 
 bot = commands.Bot(command_prefix=".")
-slashBot = commands.Bot(command_prefix="/")
+# slashBot = commands.Bot(command_prefix="/")
 
-@slashBot.slash_command(guild_ids=[867597533458202644])  # create a slash command for the supplied guilds
+@bot.slash_command(guild_ids=[867597533458202644])  # create a slash command for the supplied guilds
 async def hello(ctx):
     """Say hello to the bot"""  # the command description can be supplied as the docstring
     await ctx.respond(f"Hello {ctx.author}!")
-    
+
 # @slashBot.command()
 # async def hello(ctx):
 #     await ctx.respond(f"Hello {ctx.author}!")
