@@ -10,6 +10,12 @@ from dotenv import load_dotenv
 import os
 
 bot = commands.Bot(command_prefix=".")
+slashBot = discord.Bot()
+
+@bot.slash_command(guild_ids=[864438892736282625])  # create a slash command for the supplied guilds
+async def hello(ctx):
+    """Say hello to the bot"""  # the command description can be supplied as the docstring
+    await ctx.respond(f"Hello {ctx.author}!")
 
 load_dotenv()
 token = os.getenv("token")
