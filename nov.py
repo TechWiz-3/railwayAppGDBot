@@ -50,10 +50,10 @@ meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you", "hate you"]
 async def on_ready():
     print('Bot is ready!')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
-    server = bot.get_guild(867597533458202644)
-    channel = server.get_channel(867597533458202647)
-    await channel.send("wtf")
-    await asyncio.sleep(5)
+    # server = bot.get_guild(867597533458202644)
+    # channel = server.get_channel(867597533458202647)
+    # await channel.send("wtf")
+    # await asyncio.sleep(5)
 
 
 @bot.slash_command(guild_ids=[867597533458202644])
