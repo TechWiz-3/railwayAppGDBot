@@ -11,7 +11,7 @@ import os
 import mysql.connector
 
 load_dotenv()
-token = os.getenv("password")
+token = os.getenv("token")
 password = os.getenv("password")
 
 mydb = mysql.connector.connect(
