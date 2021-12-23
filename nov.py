@@ -11,19 +11,15 @@ import os
 import mysql.connector
 
 load_dotenv()
-token = os.getenv("token")
-host = os.getenv("host")
-user = os.getenv("user")
+token = os.getenv("password")
 password = os.getenv("password")
-database = os.getenv("database")
-port = os.getenv("port")
 
 mydb = mysql.connector.connect(
-  host=host,
-  user=user,
-  password=password,
-  database=database,
-  port=port
+  host="containers-us-west-23.railway.app",
+  user="root",
+  password=password,#sus person, why are you reading this line??
+  database="railway",
+  port="6499"
 )
 mycursor = mydb.cursor()
 
