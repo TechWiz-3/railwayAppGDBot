@@ -8,6 +8,7 @@ import requests
 from discord.ext import commands
 from dotenv import load_dotenv
 import os
+import mysql.connector
 
 load_dotenv()
 token = os.getenv("token")
@@ -17,7 +18,6 @@ password = os.getenv("password")
 database = os.getenv("database")
 port = os.getenv("port")
 
-import mysql.connector
 mydb = mysql.connector.connect(
   host=host,
   user=user,
