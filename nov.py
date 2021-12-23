@@ -8,13 +8,22 @@ import requests
 from discord.ext import commands
 from dotenv import load_dotenv
 import os
+
+load_dotenv()
+token = os.getenv("token")
+host = os.getenv("host")
+user = os.getenv("user")
+password = os.getenv("password")
+database = os.getenv("database")
+port = os.getenv("port")
+
 import mysql.connector
 mydb = mysql.connector.connect(
-  host="containers-us-west-23.railway.app",
-  user="root",
-  password="yUWgeMOav9HmGFDqUIXo",
-  database="railway",
-  port="6499"
+  host=host,
+  user=user,
+  password=password,
+  database=database,
+  port=port
 )
 mycursor = mydb.cursor()
 
@@ -29,8 +38,7 @@ async def hello(ctx):
 # async def hello(ctx):
 #     await ctx.respond(f"Hello {ctx.author}!")
 
-load_dotenv()
-token = os.getenv("token")
+
 
 helperResponseA = ["Alright, Gravity Destroyers, sending help for you now", "Help? Someone needs help? Right away bois.", "I was sleeping, did you have to wake me up with this help request? Send help now.", "Help? Only God can help you!!", "Aww, you need help fam. Dw I'm here for you", "Help request that's noice", "HELP??? SURE MATE", "K alerting the martian embassy help is required"]
 helperResponseB = "**Help request**\n> Please react with <:agreentick:875244017833639956> below this message to enable this ping request, 3 votes excluding me are required unless a moderator approves the request."
