@@ -52,8 +52,9 @@ async def on_ready():
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
     server = bot.get_guild(867597533458202644)
     channel = server.get_channel(867597533458202647)
-    await channel.send("beep boop TESTING")
-    await asyncio.sleep(5)
+    while True:
+        await channel.send("Check <#867641250139602994> yall and please fill this form https://dyno.gg/form/560a2055 **it's literally 20 seconds to fill**")
+        await asyncio.sleep(8400)
 
 
 @bot.slash_command(guild_ids=[867597533458202644])
