@@ -121,24 +121,24 @@ async def about(ctx):
     await ctx.send("> I'm the Gravity Destroyers Bot :)\n> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
 
                         
-@bot.command()
-@commands.cooldown(1,60,commands.BucketType.user)
-async def motivation(ctx):
-    async with ctx.typing():
-        await asyncio.sleep(3)
-    ctx.send("Welcome to Rowan's School of Motivation\nhttps://thumbs.gfycat.com/ZestyPowerlessDaddylonglegs-size_restricted.gif")
-    async with ctx.typing():
-        await asyncio.sleep(3)
-    ctx.send(random.choice(rowanMotivation))
+# @bot.command()
+# @commands.cooldown(1,60,commands.BucketType.user)
+# async def motivation(ctx):
+#     async with ctx.typing():
+#         await asyncio.sleep(3)
+#     ctx.send("Welcome to Rowan's School of Motivation\nhttps://thumbs.gfycat.com/ZestyPowerlessDaddylonglegs-size_restricted.gif")
+#     async with ctx.typing():
+#         await asyncio.sleep(3)
+#     ctx.send(random.choice(rowanMotivation))
 
-@bot.event
-async def on_error(ctx,error):
-    if isinstance(error, commands.CommandOnCooldown):
-        errorMsg = '**Still on cooldown, please try again in {:.2f}s'.format(error.retry_after)
-        rowanMsg = random.choice(onCoolDownResponse)
-        async with ctx.typing():
-            await asyncio.sleep(3)
-        await ctx.send(f'{errorMsg}\n{rowanMsg}')
+# @bot.event
+# async def on_error(ctx,error):
+#     if isinstance(error, commands.CommandOnCooldown):
+#         errorMsg = '**Still on cooldown, please try again in {:.2f}s'.format(error.retry_after)
+#         rowanMsg = random.choice(onCoolDownResponse)
+#         async with ctx.typing():
+#             await asyncio.sleep(3)
+#         await ctx.send(f'{errorMsg}\n{rowanMsg}')
 
 reddit = 867599777743372299
 
