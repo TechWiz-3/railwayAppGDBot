@@ -135,10 +135,11 @@ async def motivation(ctx):
 async def on_error(ctx,error):
     if isinstance(error, commands.CommandOnCooldown):
         errorMsg = '**Still on cooldown, please try again in {:.2f}s'.format(error.retry_after)
-        rowanMsg = random.choice(onCoolDownResponse)
-        async with ctx.typing():
-            await asyncio.sleep(3)
-        await ctx.send(f'{errorMsg}\n{rowanMsg}')
+        await ctx.send(errorMsg)
+        # rowanMsg = random.choice(onCoolDownResponse)
+        # async with ctx.typing():
+        #     await asyncio.sleep(3)
+        # await ctx.send(f'{errorMsg}\n{rowanMsg}')
 
 reddit = 867599777743372299
 
