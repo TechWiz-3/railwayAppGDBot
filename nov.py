@@ -149,8 +149,8 @@ async def on_message(message):
     if message.channel.id in randomResponseChannels:
         chanceTriggerFunnyTimer = random.randint(1,100)
         if chanceTriggerFunnyTimer == 20:
-            async with message.channel.typing():
-                await asyncio.sleep(3)
+            # async with message.channel.typing():
+            #     await asyncio.sleep(3)
             await message.channel.send(random.choice(randomReminders))
 
     #print(message)
