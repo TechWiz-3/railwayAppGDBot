@@ -126,10 +126,10 @@ async def about(ctx):
 async def motivation(ctx):
     async with ctx.typing():
         await asyncio.sleep(3)
-    ctx.send("Welcome to Rowan's School of Motivation\nhttps://thumbs.gfycat.com/ZestyPowerlessDaddylonglegs-size_restricted.gif")
+    await ctx.send("Welcome to Rowan's School of Motivation\nhttps://thumbs.gfycat.com/ZestyPowerlessDaddylonglegs-size_restricted.gif")
     async with ctx.typing():
         await asyncio.sleep(3)
-    ctx.send(random.choice(rowanMotivation))
+    await ctx.send(random.choice(rowanMotivation))
 
 @bot.event
 async def on_error(ctx,error):
