@@ -134,7 +134,7 @@ async def motivation(ctx):
 @bot.event
 async def on_command_error(ctx,error):
     if isinstance(error, commands.CommandOnCooldown):
-        errorMsg = '**Still on cooldown, please try again in {:.2f}s'.format(error.retry_after)
+        errorMsg = '**Still on cooldown, please try again in {:.2f}s**'.format(error.retry_after)
         rowanMsg = random.choice(onCoolDownResponse)
         async with ctx.typing():
             await asyncio.sleep(3)
