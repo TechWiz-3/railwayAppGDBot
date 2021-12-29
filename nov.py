@@ -45,6 +45,8 @@ randomResponseChannels = [867597533458202647, 867600399879372820, 86760042024691
 zacResponses = ["Yes, my man, my king, my owner", "Shut up Zac ok? I'm busy doin stuff", ":heart:", "You da best Zackie", ":rolling_eyes:", "Eh don't mind him guys that's just Zac", "Don't worry about him guys", "How may I be of service fine owner?", "Mate you really gotta fix my coding NOW, there's something that's annoying me in there OK????", "I wuv Gravity Destroyers :star_struck:", "You da man"]
 mentionResponses = ["Hello :) I see you've mentioned me, thanks for doing that but I'm not chat bot so I can't really help there", "Hallo", "Me not chatbot sorry :(", "You talkin trash over there brtoha?", ":)", "I'm not chatbot fine sir, however I assure you there are plenty of Gravity Destroyers willing to talk", ":thinking:"]
 meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you", "hate you", "shut your", "shush", "shsh", "piss off", "buzz off"]
+rowanMotivation = ["https://www.youtube.com/watch?v=T2zLJW9l-Qw&", "DISCIPLINE, INTERNAL MOTIVATION > external motivation", "HUH? YOU WANT MOTIVATION???\nIt's simple mate, you want to get somewhere? What do you need to do to get there? Now do it.", "You wanna workout? How about, just do it. Or maybe rethink your training if you're not enjoying it**", "Ay you want motivation, how about thinking about what you want, why you want it and then it'll be easy to go and do what you need to do.\nJust remember, we're here for you :blush:", "It's in you man, I know it is, you just gotta push yourself a little and you'll get it", "*Ay gut naw excooses*\nJust go for it brah", "*I'm tired today, idk if i want to teach at the school today :weary:*\nI think you agree that sounds pretty lame. It's ok to feel tired but it isn't ok to give up. Lets go now man", "SHUT UP AND WORKOUT", ":rolling_eyes: you have everything you need internally **SCHOOL ADJOURNED**"]
+onCoolDownResponse = ["Why yall so impatient huh", "Hey matey, command on cooldown, sowwy", ":moyai:", "Patience human, patience", "Patience is a virtua :moyai:", ":rolling_eyes: :rolling_eyes:", "Your impatience is enough to outlast empires", "*Dear human the impatience of your deeds make leopards slow as snails*"]
 
 @bot.event
 async def on_ready():
@@ -87,7 +89,6 @@ async def helperping(ctx, usermention, *,messageid):
     await ctx.send(random.choice(helperResponseA))
     await asyncio.sleep(2)
     await ctx.send(helperResponseB)#889042207544340511
-    
     #await ctx.channel.purge(1)
 @commands.command()
 async def about(ctx):
@@ -119,23 +120,25 @@ async def about(ctx):
         await asyncio.sleep(5)
     await ctx.send("> I'm the Gravity Destroyers Bot :)\n> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
 
-server = "Gravity Destroyers SW"
-@bot.command()
-async def testing(ctx):
-    for guild in bot.guilds:
-        if str(guild) == "Gravity Destroyers SW":
-            for role in guild.roles:
-                print(role)
-                if str(role.name) == "He/Him":
-                    print("if was triggered")
-                    for member in str(role.members):
-                        print(member)
-                        # print(member.name)
-                        # await ctx.send(member.name)
-                    break
-                #help me
                         
-            
+@bot.command()
+@commands.cooldown(1,60,commands.BucketType.user)
+async def motivation(ctx):
+    async with ctx.typing():
+        await asyncio.sleep(3)
+    ctx.send("Welcome to Rowan's School of Motivation\nhttps://thumbs.gfycat.com/ZestyPowerlessDaddylonglegs-size_restricted.gif")
+    async with ctx.typing():
+        await asyncio.sleep(3)
+    ctx.send(random.choice(rowanMotivation))
+
+@bot.event
+async def on_error(ctx,error):
+    if isinstance(error, commands.CommandOnCooldown):
+        errorMsg = '**Still on cooldown, please try again in {:.2f}s'.format(error.retry_after)
+        rowanMsg = random.choice(onCoolDownResponse)
+        async with ctx.typing():
+            await asyncio.sleep(3)
+        await ctx.send(f'{errorMsg}\n{rowanMsg}')
 
 reddit = 867599777743372299
 
@@ -146,6 +149,8 @@ async def on_message(message):
     if message.channel.id in randomResponseChannels:
         chanceTriggerFunnyTimer = random.randint(1,100)
         if chanceTriggerFunnyTimer == 20:
+            async with message.channel.typing():
+                await asyncio.sleep(3)
             await message.channel.send(random.choice(randomReminders))
 
     #print(message)
