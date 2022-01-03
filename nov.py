@@ -47,6 +47,7 @@ mentionResponses = ["Hello :) I see you've mentioned me, thanks for doing that b
 meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you", "hate you", "shut your", "shush", "shsh", "piss off", "buzz off"]
 rowanMotivation = ["https://www.youtube.com/watch?v=T2zLJW9l-Qw&", "DISCIPLINE, INTERNAL MOTIVATION > external motivation", "HUH? YOU WANT MOTIVATION???\nIt's simple mate, you want to get somewhere? What do you need to do to get there? Now do it.", "**You wanna workout? How about, just do it. Or maybe rethink your training if you're not enjoying it**", "Ay you want motivation, how about thinking about what you want, why you want it and then it'll be easy to go and do what you need to do.\nJust remember, we're here for you :blush:", "It's in you man, I know it is, you just gotta push yourself a little and you'll get it", "*Ay gut naw excooses*\nJust go for it brah", "*I'm tired today, idk if i want to teach at the school today :weary:*\nI think you agree that sounds pretty lame. It's ok to feel tired but it isn't ok to give up. Lets go now man", "SHUT UP AND WORKOUT", ":rolling_eyes: you have everything you need internally **SCHOOL ADJOURNED**"]
 onCoolDownResponse = ["Why yall so impatient huh", "Hey matey, command on cooldown, sowwy", ":moyai:", "Patience human, patience", "Patience is a virtue :moyai:", ":rolling_eyes: :rolling_eyes:", "Your impatience is enough to outlast empires", "*Dear human the impatience of your deeds make leopards slow as snails*"]
+reminderFunnyResponse = ["Forever more ", "Man something is really bothering me, *why do they call it rush hour... when NOBODY MOVES???", "Always my brother, my captain, my king", "Hehe alright, no guarantees tho", "Monica just invited me to her birthday party, did you HAVE to ask me to do this now????\n*sighs*\nConsider it done", "Yessir", "What sort of a reminder is that, huh", ":D", "*mischevious grin* Well, we'll see about *that* one"]
 
 @bot.event
 async def on_ready():
@@ -59,14 +60,14 @@ async def on_ready():
     #     await asyncio.sleep(1800)
 
 
-@bot.slash_command(guild_ids=[867597533458202644])
-async def newyeargoal(ctx,*,goal):
-    await ctx.respond(f"Yessir\nYour goal is `{goal}`")
-    person = str(ctx.author)
-    finalValues = (person, goal)
-    sql = "INSERT INTO test_goals_2002 (user, goals) VALUES (%s, %s)"
-    mycursor.execute(sql, finalValues)
-    mydb.commit()
+# @bot.slash_command(guild_ids=[867597533458202644])
+# async def newyeargoal(ctx,*,goal):
+#     await ctx.respond(f"Yessir\nYour goal is `{goal}`")
+#     person = str(ctx.author)
+#     finalValues = (person, goal)
+#     sql = "INSERT INTO test_goals_2002 (user, goals) VALUES (%s, %s)"
+#     mycursor.execute(sql, finalValues)
+#     mydb.commit()
 
 @commands.command()
 async def compliment(ctx, user):
@@ -131,6 +132,22 @@ async def motivation(ctx):
         await asyncio.sleep(3)
     await ctx.send(random.choice(rowanMotivation))
 
+#create actual remind me command
+# @bot.slash_command(guild_ids=[867597533458202644])
+# async def setReminder(ctx, howLong, typeOfTime,*,message):
+
+#     if typeOfTime.lower() == "h" or "hour" in typeOfTime.lower():
+#         finalTime = howLong * 3600
+#         await asyncio.sleep(finalTime)
+#     if typeOfTime.lower() == "d" or "day" in typeOfTime.lower():
+#         finalTime = howLong * 86400
+#         await asyncio.sleep(finalTime)
+#     if typeOfTime.lower() == "m" or "minute" in typeOfTime.lower():
+#         finalTime = howLong * 60
+#         await asyncio.sleep(finalTime)
+#     await ctx.respond(message)
+
+
 @bot.event
 async def on_command_error(ctx,error):
     if isinstance(error, commands.CommandOnCooldown):
@@ -180,10 +197,11 @@ async def on_message(message):
         await message.channel.send("<@&870509092974759946> New reddit post :)")
         
 
-    
+
 
 @bot.event
 async def on_reaction_add(reaction, user):
+    #create if statement to ensure it isn't a bot
     print(reaction.emoji)
     emoji = reaction.emoji
     await reaction.message.add_reaction(str(emoji))
