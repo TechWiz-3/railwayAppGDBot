@@ -133,19 +133,7 @@ async def motivation(ctx):
     await ctx.send(random.choice(rowanMotivation))
 
 #create actual remind me command
-# @bot.slash_command(guild_ids=[867597533458202644])
-# async def setReminder(ctx, howLong, typeOfTime,*,message):
-
-#     if typeOfTime.lower() == "h" or "hour" in typeOfTime.lower():
-#         finalTime = howLong * 3600
-#         await asyncio.sleep(finalTime)
-#     if typeOfTime.lower() == "d" or "day" in typeOfTime.lower():
-#         finalTime = howLong * 86400
-#         await asyncio.sleep(finalTime)
-#     if typeOfTime.lower() == "m" or "minute" in typeOfTime.lower():
-#         finalTime = howLong * 60
-#         await asyncio.sleep(finalTime)
-#     await ctx.respond(message)
+# help me
 
 
 @bot.event
