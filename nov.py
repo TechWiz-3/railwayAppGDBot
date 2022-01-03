@@ -134,6 +134,9 @@ async def motivation(ctx):
 
 #create actual remind me command
 # help me
+#acutally need help
+
+
 
 
 @bot.event
