@@ -127,7 +127,7 @@ async def about(ctx):
 async def motivation(ctx):
     async with ctx.typing():
         await asyncio.sleep(3)
-    await ctx.send("Welcome to Rowan's School of Motivation\nhttps://thumbs.gfycat.com/ZestyPowerlessDaddylonglegs-size_restricted.gif")
+    await ctx.send(content = "Welcome to Rowan's School of Motivation\nhttps://thumbs.gfycat.com/ZestyPowerlessDaddylonglegs-size_restricted.gif", delete_after=5)
     async with ctx.typing():
         await asyncio.sleep(3)
     await ctx.send(random.choice(rowanMotivation))
