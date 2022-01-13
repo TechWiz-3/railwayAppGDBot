@@ -168,10 +168,10 @@ async def on_message(message):
         originalMessagerId  = message.author.id
     if "Bump done" in message.content and message.author.name == "DISBOARD" and bumpCounter == 1:
         bumpCounter = 0
-    if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
-        await message.channel.send(
-            'https://cdn.discordapp.com/attachments/867599113825812481/927822953868046336/sign.png'
-                )
+    # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
+    #     await message.channel.send(
+    #         'https://cdn.discordapp.com/attachments/867599113825812481/927822953868046336/sign.png'
+    #             )
     if message.author.id == 889042207544340511:
         if message.content == helperResponseB:
             await message.add_reaction("<:agreentick:875244017833639956>")
@@ -179,8 +179,8 @@ async def on_message(message):
             #     await message.channel.send(helperResponseC)
     if message.content == "yeah boi":
         await message.channel.send("yeah BOIII")
-    if ("sup", "wassup", "whats up", "what's up") in message.content.lower():
-        await message.channel.send(random.choice(whatsUpResponse))
+    # if ("sup", "wassup", "whats up", "what's up") in message.content.lower():
+    #     await message.channel.send(random.choice(whatsUpResponse))
     if "legs" in message.content.lower():
         await message.channel.send("`l e g s` ??? Did someone say legs?")
     if "nice" in message.content.lower():
