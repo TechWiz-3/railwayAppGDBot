@@ -210,9 +210,9 @@ async def on_reaction_add(reaction, user):
     #create if statement to ensure it isn't a bot
     if reaction.emoji == "🍆" or reaction.emoji == "🍑":
         await reaction.message.channel.send(f"{str(user.mention)} naughty boi, you trying to post bad emojis")
+        await reaction.clear()
         if user.id == 728541505123516447:
             banthonk = discord.utils.get(bot.emojis, name='banthonk')
-
             await reaction.message.channel.send(f"<@760345587802964010> BB seems like he wants the banner hammer {banthonk}")
     else:
         emoji = reaction.emoji
