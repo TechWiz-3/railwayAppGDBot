@@ -215,7 +215,7 @@ async def on_reaction_add(reaction, user):
             await reaction.message.add_reaction("❤️")
         except:
             pass
-        if user.id == 728541505123516447:
+        if user.id == 760345587802964010:#728541505123516447:
             banthonk = discord.utils.get(bot.emojis, name='banthonk')
             await reaction.message.channel.send(f"<@760345587802964010> BB seems like he wants the banner hammer {banthonk}")
     else:
