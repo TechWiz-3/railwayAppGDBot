@@ -1,3 +1,4 @@
+# make bumping reward system
 import discord
 import asyncio
 import random
@@ -45,16 +46,17 @@ randomResponseChannels = [867597533458202647, 867600399879372820, 86760042024691
 zacResponses = ["Yes, my man, my king, my owner", "Shut up Zac ok? I'm busy doin stuff", ":heart:", "You da best Zackie", ":rolling_eyes:", "Eh don't mind him guys that's just Zac", "Don't worry about him guys", "How may I be of service fine owner?", "Mate you really gotta fix my coding NOW, there's something that's annoying me in there OK????", "I wuv Gravity Destroyers :star_struck:", "You da man"]
 mentionResponses = ["Hello :) I see you've mentioned me, thanks for doing that but I'm not chat bot so I can't really help there", "Hallo", "Me not chatbot sorry :(", "You talkin trash over there brtoha?", ":)", "I'm not chatbot fine sir, however I assure you there are plenty of Gravity Destroyers willing to talk", ":thinking:"]
 meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you", "hate you", "shut your", "shush", "shsh", "piss off", "buzz off"]
-rowanMotivation = ["https://www.youtube.com/watch?v=T2zLJW9l-Qw&", "DISCIPLINE, INTERNAL MOTIVATION > external motivation", "HUH? YOU WANT MOTIVATION???\nIt's simple mate, you want to get somewhere? What do you need to do to get there? Now do it.", "**You wanna workout? How about, just do it. Or maybe rethink your training if you're not enjoying it**", "Ay you want motivation, how about thinking about what you want, why you want it and then it'll be easy to go and do what you need to do.\nJust remember, we're here for you :blush:", "It's in you man, I know it is, you just gotta push yourself a little and you'll get it", "*Ay gut naw excooses*\nJust go for it brah", "*I'm tired today, idk if i want to teach at the school today :weary:*\nI think you agree that sounds pretty lame. It's ok to feel tired but it isn't ok to give up. Lets go now man", "SHUT UP AND WORKOUT", ":rolling_eyes: you have everything you need internally **SCHOOL ADJOURNED**"]
+rowanMotivation = ["https://www.youtube.com/watch?v=T2zLJW9l-Qw&", "DISCIPLINE, INTERNAL MOTIVATION > external motivation", "HUH? YOU WANT MOTIVATION???\nIt's simple mate, you want to get somewhere? What do you need to do to get there? Now do it.", "**You wanna workout? How about, just do it. Or maybe rethink your training if you're not enjoying it**", "Ay you want motivation, how about thinking about what you want, why you want it and then it'll be easy to go and do what you need to do.\nJust remember, we're here for you :blush:", "It's in you man, I know it is, you just gotta push yourself a little and you'll get it", "*Ay gut naw excooses*\nJust go for it brah", "*I'm tired today, idk if i want to teach at the school today :weary:*\nI think you agree that sounds pretty lame. It's ok to feel tired but it isn't ok to give up. Lets go now man", "SHUT UP AND WORKOUT", ":rolling_eyes: you have everything you need internally **SCHOOL ADJOURNED**", "Not sayin your lazy but... my magic 8ball like intuition says you can use this https://www.youtube.com/watch?v=lj5SzG4XHJo", "Unkown source, wait huh? https://cdn.discordapp.com/attachments/926312175943962674/927406438886801529/v09044g40000c7937ijc77ub2at7lpmg.mp4", "https://pbs.twimg.com/media/BmIY5ptIMAAjRWE.jpg", "**Rise Above**\nttps://www.youtube.com/watch?v=8VGI7PX8mic", "**Your Call to Workout**\nhttps://www.youtube.com/watch?v=LFWBYqe-GiA", "https://i.imgur.com/OPdGqUy.png"]
 onCoolDownResponse = ["Why yall so impatient huh", "Hey matey, command on cooldown, sowwy", ":moyai:", "Patience human, patience", "Patience is a virtue :moyai:", ":rolling_eyes: :rolling_eyes:", "Your impatience is enough to outlast empires", "*Dear human the impatience of your deeds make leopards slow as snails*"]
 reminderFunnyResponse = ["Forever more ", "Man something is really bothering me, *why do they call it rush hour... when NOBODY MOVES???", "Always my brother, my captain, my king", "Hehe alright, no guarantees tho", "Monica just invited me to her birthday party, did you HAVE to ask me to do this now????\n*sighs*\nConsider it done", "Yessir", "What sort of a reminder is that, huh", ":D", "*mischevious grin* Well, we'll see about *that* one"]
+whatsUpResponse = ["Umm. The sky?", "What's up? THE SKY MATE", "The sky :), or in your case the roof", "Da roof", "The roof is up, but if you mean how am I, I've very well thanks how are you?"]
 
 @bot.event
 async def on_ready():
     print('Bot is ready!')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
-    server = bot.get_guild(867597533458202644)
-    channel = server.get_channel(867597533458202647)
+    #server = bot.get_guild(867597533458202644)
+    #channel = server.get_channel(867597533458202647)
     # while True:
     #     await channel.send("Check <#867641250139602994> yall and please fill this form https://dyno.gg/form/560a2055 **it's literally 20 seconds to fill**")
     #     await asyncio.sleep(1800)
@@ -160,8 +162,16 @@ async def on_message(message):
             # async with message.channel.typing():
             #     await asyncio.sleep(3)
             await message.channel.send(random.choice(randomReminders))
-
-    #print(message)
+    if message.content.lower() == "!d bump":
+        bumpCounter = 1
+        originalMessager = str(message.author)
+        originalMessagerId  = message.author.id
+    if "Bump done" in message.content and message.author.name == "DISBOARD" and bumpCounter == 1:
+        bumpCounter = 0
+    if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
+        await message.channel.send(
+            'https://cdn.discordapp.com/attachments/867599113825812481/927822953868046336/sign.png'
+                )
     if message.author.id == 889042207544340511:
         if message.content == helperResponseB:
             await message.add_reaction("<:agreentick:875244017833639956>")
@@ -169,6 +179,10 @@ async def on_message(message):
             #     await message.channel.send(helperResponseC)
     if message.content == "yeah boi":
         await message.channel.send("yeah BOIII")
+    if ("sup", "wassup", "whats up", "what's up") in message.content.lower():
+        await message.channel.send(random.choice(whatsUpResponse))
+    if "legs" in message.content.lower():
+        await message.channel.send("`l e g s` ??? Did someone say legs?")
     if "nice" in message.content.lower():
         chance = random.randint(1, 3)
         if chance == 1:
@@ -192,34 +206,41 @@ async def on_message(message):
 
 @bot.event
 async def on_reaction_add(reaction, user):
+    print(reaction.emoji, user.name)
     #create if statement to ensure it isn't a bot
-    print(reaction.emoji)
-    emoji = reaction.emoji
-    await reaction.message.add_reaction(str(emoji))
-    if reaction.message.author.id == 889042207544340511 and reaction.message.content == helperResponseB:
-        #if reaction.count == 2:
-        # if discord.utils.get(reaction.message.reactions, emoji='<:agreentick:913047736876691557>').count == 2:
-        #     await reaction.message.channel.send("ayo bois")
-        #await reaction.message.channel.send(reaction.emoji)
-        #print(str(reaction.emoji))
-        #print(user.roles)
+    if reaction.emoji == "🍆" or reaction.emoji == "🍑":
+        await reaction.message.channel.send(f"{str(user.mention)} naughty boi, you trying to post bad emojis")
+        if user.id == 728541505123516447:
+            banthonk = discord.utils.get(bot.emojis, name='banthonk')
 
-        if str(reaction.emoji) == '<:agreentick:875244017833639956>' and reaction.count > 2:
-            await reaction.message.channel.send(random.choice(helperResponseC))
-        else:
-            for role in user.roles:
-                #print(role)
-                if role.id in (872984654544765028, 910706555496849458, 910701780055228456):
-                    await reaction.message.channel.send(random.choice(helperResponseD))
-                    await reaction.message.channel.send(f'Alright thanks {whorequested} we got this help request going now')
-                    if mmessageid.isnumeric():
-                        textchannel = reaction.message.channel
-                        originalMessage = await textchannel.fetch_message(int(mmessageid))
-                        #await textchannel.send(originalMessage.content)
-                        await reaction.message.channel.send(f'(**phantom helper ping, pretend it\'s here)**\n{uusermention} needs help with {originalMessage.content}')#<@&872010951795306496>
-                    else:
-                        await reaction.message.channel.send(f'(**phantom helper ping, pretend it\'s here)**\n{uusermention} needs help with {mmessageid}')#<@&872010951795306496>
- 
+            await reaction.message.channel.send(f"<@760345587802964010> BB seems like he wants the banner hammer {banthonk}")
+    else:
+        emoji = reaction.emoji
+        await reaction.message.add_reaction(str(emoji))
+        if reaction.message.author.id == 889042207544340511 and reaction.message.content == helperResponseB:
+            #if reaction.count == 2:
+            # if discord.utils.get(reaction.message.reactions, emoji='<:agreentick:913047736876691557>').count == 2:
+            #     await reaction.message.channel.send("ayo bois")
+            #await reaction.message.channel.send(reaction.emoji)
+            #print(str(reaction.emoji))
+            #print(user.roles)
+
+            if str(reaction.emoji) == '<:agreentick:875244017833639956>' and reaction.count > 2:
+                await reaction.message.channel.send(random.choice(helperResponseC))
+            else:
+                for role in user.roles:
+                    #print(role)
+                    if role.id in (872984654544765028, 910706555496849458, 910701780055228456):
+                        await reaction.message.channel.send(random.choice(helperResponseD))
+                        await reaction.message.channel.send(f'Alright thanks {whorequested} we got this help request going now')
+                        if mmessageid.isnumeric():
+                            textchannel = reaction.message.channel
+                            originalMessage = await textchannel.fetch_message(int(mmessageid))
+                            #await textchannel.send(originalMessage.content)
+                            await reaction.message.channel.send(f'(**phantom helper ping, pretend it\'s here)**\n{uusermention} needs help with {originalMessage.content}')#<@&872010951795306496>
+                        else:
+                            await reaction.message.channel.send(f'(**phantom helper ping, pretend it\'s here)**\n{uusermention} needs help with {mmessageid}')#<@&872010951795306496>
+    
 
                     
             
