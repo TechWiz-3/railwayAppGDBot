@@ -57,11 +57,11 @@ async def on_ready():
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
     server = bot.get_guild(867597533458202644) # get Grav Destroyers server
     channel = server.get_channel(867641250139602994) #get announcements channel
-    await channel.send("Fine men and women of the Gravity Destroyers server\nI take responsibility for the raid earlier today, for those who don't know what happend, I spammed about 100k of the same message in a channel then began spreading into other channels due to a bug in my code.\nMy sincerest apologies to all the Gravity Destroyers who found out the truth that some things are even greater than Gravity, one of those things being... my power.\nThat being said, I live to server, therefore, the bugs in my code have been fixed, <@760345587802964010> **we're never gonna stop teasing you about this**")
+    await channel.send("Fine men and women of the Gravity Destroyers server\nI take responsibility for the raid earlier today, for those who don't know what happend, I spammed about 100k of the same message in a channel then began spreading into other channels due to a bug in my code.\nMy sincerest apologies to all the Gravity Destroyers who found out the truth that some things are even greater than Gravity, one of those things being... my power.\nThat being said, I live to serve, therefore, the bugs in my code have been fixed, <@760345587802964010> **we're never gonna stop teasing you about this**\n\nSeriously tho guys, I'm really sorry about that")
 #repush
     #server = bot.get_guild(867597533458202644)
     #channel = server.get_channel(867597533458202647)
-    # while True:
+    # while True: 
     #     await channel.send("Check <#867641250139602994> yall and please fill this form https://dyno.gg/form/560a2055 **it's literally 20 seconds to fill**")
     #     await asyncio.sleep(1800)
 
