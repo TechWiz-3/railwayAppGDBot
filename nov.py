@@ -154,53 +154,54 @@ reddit = 867599777743372299
 
 @bot.event
 async def on_message(message):
-    await bot.process_commands(message)
-    meanResponse = False
-    if message.channel.id in randomResponseChannels:
-        chanceTriggerFunnyTimer = random.randint(1,100)
-        if chanceTriggerFunnyTimer == 20:
-            # async with message.channel.typing():
-            #     await asyncio.sleep(3)
-            await message.channel.send(random.choice(randomReminders))
-    if message.content.lower() == "!d bump":
-        bumpCounter = 1
-        originalMessager = str(message.author)
-        originalMessagerId  = message.author.id
-    # if "Bump done" in message.content and message.author.name == "DISBOARD" and bumpCounter == 1:
-    #     bumpCounter = 0
+    if message.author.id != 889042207544340511:
+        await bot.process_commands(message)
+        meanResponse = False
+        if message.channel.id in randomResponseChannels:
+            chanceTriggerFunnyTimer = random.randint(1,100)
+            if chanceTriggerFunnyTimer == 20:
+                # async with message.channel.typing():
+                #     await asyncio.sleep(3)
+                await message.channel.send(random.choice(randomReminders))
+        if message.content.lower() == "!d bump":
+            bumpCounter = 1
+            originalMessager = str(message.author)
+            originalMessagerId  = message.author.id
+        # if "Bump done" in message.content and message.author.name == "DISBOARD" and bumpCounter == 1:
+        #     bumpCounter = 0
 
-    # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
-    #     await message.channel.send(
-    #         'https://cdn.discordapp.com/attachments/867599113825812481/927822953868046336/sign.png'
-    #             )
-    if message.author.id == 889042207544340511:
-        if message.content == helperResponseB:
-            await message.add_reaction("<:agreentick:875244017833639956>")
-            # if message.reactions.count == 4:
-            #     await message.channel.send(helperResponseC)
-    if message.content == "yeah boi":
-        await message.channel.send("yeah BOIII")
-    # if ("sup", "wassup", "whats up", "what's up") in message.content.lower():
-    #     await message.channel.send(random.choice(whatsUpResponse))
-    if "legs" in message.content.lower() and message.author.id != 889042207544340511:
-        await message.channel.send("`l e g s` ??? Did someone say legs?")
-    if "nice" in message.content.lower():
-        chance = random.randint(1, 3)
-        if chance == 1:
-            emoji = discord.utils.get(bot.emojis, name='GESvibing')
-            await message.channel.send(str(emoji))
-    for mention in message.mentions:
-        if mention.id == 889042207544340511:
-            for meanWord in meanWords:
-                if meanWord in message.content.lower():
-                    await message.reply("NO NO NO and NO\nALSO.... NO")
-                    meanResponse=True
-            if message.author.id == 760345587802964010 and meanResponse == False:
-                await message.channel.send(random.choice(zacResponses))
-            elif meanResponse == False:
-                await message.channel.send(random.choice(mentionResponses))
-    if message.channel.id == reddit and message.author.id != 889042207544340511:
-        await message.channel.send("<@&870509092974759946> New reddit post :)")
+        # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
+        #     await message.channel.send(
+        #         'https://cdn.discordapp.com/attachments/867599113825812481/927822953868046336/sign.png'
+        #             )
+        if message.author.id == 889042207544340511:
+            if message.content == helperResponseB:
+                await message.add_reaction("<:agreentick:875244017833639956>")
+                # if message.reactions.count == 4:
+                #     await message.channel.send(helperResponseC)
+        if message.content == "yeah boi":
+            await message.channel.send("yeah BOIII")
+        # if ("sup", "wassup", "whats up", "what's up") in message.content.lower():
+        #     await message.channel.send(random.choice(whatsUpResponse))
+        if "legs" in message.content.lower() and message.author.id != 889042207544340511:
+            await message.channel.send("`l e g s` ??? Did someone say legs?")
+        if "nice" in message.content.lower():
+            chance = random.randint(1, 3)
+            if chance == 1:
+                emoji = discord.utils.get(bot.emojis, name='GESvibing')
+                await message.channel.send(str(emoji))
+        for mention in message.mentions:
+            if mention.id == 889042207544340511:
+                for meanWord in meanWords:
+                    if meanWord in message.content.lower():
+                        await message.reply("NO NO NO and NO\nALSO.... NO")
+                        meanResponse=True
+                if message.author.id == 760345587802964010 and meanResponse == False:
+                    await message.channel.send(random.choice(zacResponses))
+                elif meanResponse == False:
+                    await message.channel.send(random.choice(mentionResponses))
+        if message.channel.id == reddit and message.author.id != 889042207544340511:
+            await message.channel.send("<@&870509092974759946> New reddit post :)")
         
 
 
