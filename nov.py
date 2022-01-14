@@ -65,7 +65,7 @@ async def on_ready():
     #     await channel.send("Check <#867641250139602994> yall and please fill this form https://dyno.gg/form/560a2055 **it's literally 20 seconds to fill**")
     #     await asyncio.sleep(1800)
 
-
+ 
 # @bot.slash_command(guild_ids=[867597533458202644])
 # async def newyeargoal(ctx,*,goal):
 #     await ctx.respond(f"Yessir\nYour goal is `{goal}`")
