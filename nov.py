@@ -166,8 +166,9 @@ async def on_message(message):
         bumpCounter = 1
         originalMessager = str(message.author)
         originalMessagerId  = message.author.id
-    if "Bump done" in message.content and message.author.name == "DISBOARD" and bumpCounter == 1:
-        bumpCounter = 0
+    # if "Bump done" in message.content and message.author.name == "DISBOARD" and bumpCounter == 1:
+    #     bumpCounter = 0
+
     # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
     #     await message.channel.send(
     #         'https://cdn.discordapp.com/attachments/867599113825812481/927822953868046336/sign.png'
@@ -181,7 +182,7 @@ async def on_message(message):
         await message.channel.send("yeah BOIII")
     # if ("sup", "wassup", "whats up", "what's up") in message.content.lower():
     #     await message.channel.send(random.choice(whatsUpResponse))
-    if "legs" in message.content.lower():
+    if "legs" in message.content.lower() and message.author.id != 889042207544340511:
         await message.channel.send("`l e g s` ??? Did someone say legs?")
     if "nice" in message.content.lower():
         chance = random.randint(1, 3)
