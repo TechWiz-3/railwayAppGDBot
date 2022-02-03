@@ -254,7 +254,7 @@ async def on_reaction_add(reaction, user):
             await reaction.message.channel.send(f"<@760345587802964010> BB seems like he wants the banner hammer {banthonk}")
     else:
         emoji = reaction.emoji
-        await reaction.message.add_reaction(str(emoji))
+        #await reaction.message.add_reaction(str(emoji))
         if reaction.message.author.id == 889042207544340511 and reaction.message.content == helperResponseB:
             #if reaction.count == 2:
             # if discord.utils.get(reaction.message.reactions, emoji='<:agreentick:913047736876691557>').count == 2:
