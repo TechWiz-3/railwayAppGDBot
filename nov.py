@@ -10,6 +10,7 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import os
 import mysql.connector
+from discord import AllowedMentions
 
 load_dotenv()
 token = os.getenv("token")
@@ -24,7 +25,8 @@ mydb = mysql.connector.connect(
 )
 mycursor = mydb.cursor()
 
-bot = commands.Bot(command_prefix=".")
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix=".", intents = intents)
 
 @bot.slash_command(guild_ids=[867597533458202644])  # create a slash command for the supplied guilds
 async def hello(ctx):
@@ -44,8 +46,8 @@ helperResponseD = ["Mighty moderators have bypassed the regular authorisation an
 randomReminders = ["**Community service reminder**\nStop looking at the screen with a dry throat you lazy people :rolling_eyes:", "Stop fidgetting mate, it's annoying", "Right right", "k", "Stop sitting on the computer while you need to go to the bathroom, you know better", "thonking...", "Mind rephrasing that from crazy to english??", "you da man ay", "Public service announcement, SIT PROPERLY PEOPLE\nYall look like monkeys in front of that screen brah", "aww", "You done your workout yet today brah? No time like the present", "Mate seriously I love your enthusiasm but you really need a haircut", "you done your workout toda- oh I see you have looking fire💯", "Be not afraid of greatness. Some are born great, some achieve greatness, and others have greatness thrust upon them.", "All the world's a stage,\nAnd all the men and women merely players;\nThey have their exits and their entrances;\nAnd one man in his time plays many parts,\nHis acts being seven ages.", "Fine sir, you speak an infinite deal of nothing.", "I like that :)", "Cool", "*In a majestical voice*\nThe meaning of life is not simply to exist, to survive, but to move ahead, to go up, to conquer.", "*“Success is not final, failure is not fatal: it is the courage to continue that counts.”* Winston Churchill", "High tech shoes, low tech feet - Ido PortaL", "Success is not a good orientation, awareness however, that is far more valuable", "*What cannot be changed, must be endured.*", "Don’t let yesterday take up too much of today brother", "*“Live in the present, remember the past, and fear not the future, for it doesn’t exist and never shall. There is only now.”*", "Yea fs", ":)", "Das cool tho", "Hmm I like it, what else?", "Wow you stronk", "xD",  "All the best G", "Does this dude always talk like that? :sweat_smile:", "Ah, I see now", "Cool", "huh?\noh got it now, go ahead", "Hmm, not convinced of that fine sir"]
 randomResponseChannels = [867597533458202647, 867600399879372820, 867600420246913054, 867601016006770718, 867605832401289247, 868447164999815229, 874471834370850826, 910012458943533057, 887197847240446004]
 zacResponses = ["Yes, my man, my king, my owner", "Shut up Zac ok? I'm busy doin stuff", ":heart:", "You da best Zackie", ":rolling_eyes:", "Eh don't mind him guys that's just Zac", "Don't worry about him guys", "How may I be of service fine owner?", "Mate you really gotta fix my coding NOW, there's something that's annoying me in there OK????", "I wuv Gravity Destroyers :star_struck:", "You da man"]
-mentionResponses = ["Hell   o :) I see you've mentioned me, thanks for doing that but I'm not chat bot so I can't really help there", "Hallo", "Me not chatbot sorry :(", "You talkin trash over there brtoha?", ":)", "I'm not chatbot fine sir, however I assure you there are plenty of Gravity Destroyers willing to talk", ":thinking:"]
-meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you", "hate you", "shut your", "shush", "shsh", "piss off", "buzz off"]
+mentionResponses = ["Hello :) I see you've mentioned me, thanks for doing that but I'm not chat bot so I can't really help there", "Hallo", "Me not chatbot sorry :(", "You talkin trash over there brotha?", ":)", "I'm not chatbot fine sir, however I assure you there are plenty of Gravity Destroyers willing to talk", ":thinking:", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "PING", "bruh...", "wow, ok", "long time no see :blush:", "man i told you to stop pinging me", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "STOP PINGING ME OR ELSE", "<3", "hehe", "...", "kk", "xD np man", "oh anytimme", "yes yes yes", "meh", "huh, ohh wait", "bruh...", ":joy:", "wow this dude doesn't stop doea he"]
+meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you", "hate you", "shut your", "shush", "shsh", "piss off", "buzz off", "shutup"]
 rowanMotivation = ["https://www.youtube.com/watch?v=T2zLJW9l-Qw&", "DISCIPLINE, INTERNAL MOTIVATION > external motivation", "HUH? YOU WANT MOTIVATION???\nIt's simple mate, you want to get somewhere? What do you need to do to get there? Now do it.", "**You wanna workout? How about, just do it. Or maybe rethink your training if you're not enjoying it**", "Ay you want motivation, how about thinking about what you want, why you want it and then it'll be easy to go and do what you need to do.\nJust remember, we're here for you :blush:", "It's in you man, I know it is, you just gotta push yourself a little and you'll get it", "*Ay gut naw excooses*\nJust go for it brah", "*I'm tired today, idk if i want to teach at the school today :weary:*\nI think you agree that sounds pretty lame. It's ok to feel tired but it isn't ok to give up. Lets go now man", "SHUT UP AND WORKOUT", ":rolling_eyes: you have everything you need internally **SCHOOL ADJOURNED**", "Not sayin your lazy but... my magic 8ball like intuition says you can use this https://www.youtube.com/watch?v=lj5SzG4XHJo", "Unkown source, wait huh? https://cdn.discordapp.com/attachments/926312175943962674/927406438886801529/v09044g40000c7937ijc77ub2at7lpmg.mp4", "https://pbs.twimg.com/media/BmIY5ptIMAAjRWE.jpg", "**Rise Above**\nttps://www.youtube.com/watch?v=8VGI7PX8mic", "**Your Call to Workout**\nhttps://www.youtube.com/watch?v=LFWBYqe-GiA", "https://i.imgur.com/OPdGqUy.png", "https://cdn.discordapp.com/attachments/926312175943962674/932831810717626448/v09044g40000c7ed5vjc77u7187vb7l0.mp4", "https://cdn.discordapp.com/attachments/925106780831350784/936863287860142130/encouraging-quotes10-1607057437.jpg", "https://media.discordapp.net/attachments/789069071718678548/812031951505588234/image0.jpg?width=430&height=430"]
 onCoolDownResponse = ["Why yall so impatient huh", "Hey matey, command on cooldown, sowwy", ":moyai:", "Patience human, patience", "Patience is a virtue :moyai:", ":rolling_eyes: :rolling_eyes:", "Your impatience is enough to outlast empires", "*Dear human the impatience of your deeds make leopards slow as snails*"]
 reminderFunnyResponse = ["Forever more ", "Man something is really bothering me, *why do they call it rush hour... when NOBODY MOVES???", "Always my brother, my captain, my king", "Hehe alright, no guarantees tho", "Monica just invited me to her birthday party, did you HAVE to ask me to do this now????\n*sighs*\nConsider it done", "Yessir", "What sort of a reminder is that, huh", ":D", "*mischevious grin* Well, we'll see about *that* one"]
@@ -199,7 +201,58 @@ async def on_message(message):
                 values = (newPoints, bumperId)
                 mycursor.execute(updateNumberOfPoints, values)
                 mydb.commit()
-                await message.channel.send(f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\nRn this is a feature in the works, more soon hopefully :)")
+                server = bot.get_guild(867597533458202644)
+                bumper_object = server.get_member(int(bumperId))
+                if newPoints == 5:
+                    await bumper_object.add_roles(discord.Object(929992167949209601))
+                    await message.channel.send(
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n:trophy: You've also earned the <@&929992167949209601> role :)",
+                        allowed_mentions = AllowedMentions.none()
+                            )
+                elif newPoints == 15:
+                    await bumper_object.add_roles(discord.Object(929992275302432808))
+                    await message.channel.send(
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992275302432808> role :)",
+                        allowed_mentions = AllowedMentions.none()
+                            )
+                elif newPoints == 30:
+                    await bumper_object.add_roles(discord.Object(929992275302432808))
+                    await message.channel.send(
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992275302432808> role :)",
+                        allowed_mentions = AllowedMentions.none()
+                            )
+                elif newPoints == 50: #50
+                    await bumper_object.add_roles(discord.Object(929992208826892298))
+                    await message.channel.send(
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992208826892298> role :)",
+                        allowed_mentions = AllowedMentions.none()
+                            )
+                elif newPoints == 75:
+                    await bumper_object.add_roles(929992243270537256)
+                    await message.channel.send(
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992243270537256> role :)",
+                        allowed_mentions = AllowedMentions.none()
+                            )
+                elif newPoints == 105:
+                    await bumper_object.add_roles(929992377706369034)
+                    await message.channel.send(
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992377706369034> role :)",
+                        allowed_mentions = AllowedMentions.none()
+                            )
+                elif newPoints == 140:
+                    await bumper_object.add_roles(929992347876479006)
+                    await message.channel.send(
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992347876479006> role :)",
+                        allowed_mentions = AllowedMentions.none()
+                            )
+                elif newPoints == 180:
+                    await bumper_object.add_roles(929992418915405875)
+                    await message.channel.send(
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992418915405875> role :)",
+                        allowed_mentions = AllowedMentions.none()
+                            )
+                else:
+                    await message.channel.send(f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\nRn this is a feature in the works, more soon hopefully :)")
         # if "Bump done" in message.content and message.author.name == "DISBOARD" and bumpCounter == 1:
         #     bumpCounter = 0
 
