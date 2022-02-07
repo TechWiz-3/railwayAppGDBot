@@ -38,7 +38,6 @@ async def hello(ctx):
 #     await ctx.respond(f"Hello {ctx.author}!")
 
 
-
 helperResponseA = ["Alright, Gravity Destroyers, sending help for you now", "Help? Someone needs help? Right away bois.", "I was sleeping, did you have to wake me up with this help request? Send help now.", "Help? Only God can help you!!", "Aww, you need help fam. Dw I'm here for you", "Help request that's noice", "HELP??? SURE MATE", "K alerting the martian embassy help is required"]
 helperResponseB = "**Help request**\n> Please react with <:agreentick:875244017833639956> below this message to enable this ping request, 3 votes excluding me are required unless a moderator approves the request."
 helperResponseC = ["Alrightyyyy, we have authorisation to continue", "Nice bruh, stars have aligned, helper ping APPROVED", "Helper ping incoming", "Martian embassy has responded, we're gonna ping the helpers"]
@@ -46,12 +45,18 @@ helperResponseD = ["Mighty moderators have bypassed the regular authorisation an
 randomReminders = ["**Community service reminder**\nStop looking at the screen with a dry throat you lazy people :rolling_eyes:", "Stop fidgetting mate, it's annoying", "Right right", "k", "Stop sitting on the computer while you need to go to the bathroom, you know better", "thonking...", "Mind rephrasing that from crazy to english??", "you da man ay", "Public service announcement, SIT PROPERLY PEOPLE\nYall look like monkeys in front of that screen brah", "aww", "You done your workout yet today brah? No time like the present", "Mate seriously I love your enthusiasm but you really need a haircut", "you done your workout toda- oh I see you have looking fire💯", "Be not afraid of greatness. Some are born great, some achieve greatness, and others have greatness thrust upon them.", "All the world's a stage,\nAnd all the men and women merely players;\nThey have their exits and their entrances;\nAnd one man in his time plays many parts,\nHis acts being seven ages.", "Fine sir, you speak an infinite deal of nothing.", "I like that :)", "Cool", "*In a majestical voice*\nThe meaning of life is not simply to exist, to survive, but to move ahead, to go up, to conquer.", "*“Success is not final, failure is not fatal: it is the courage to continue that counts.”* Winston Churchill", "High tech shoes, low tech feet - Ido PortaL", "Success is not a good orientation, awareness however, that is far more valuable", "*What cannot be changed, must be endured.*", "Don’t let yesterday take up too much of today brother", "*“Live in the present, remember the past, and fear not the future, for it doesn’t exist and never shall. There is only now.”*", "Yea fs", ":)", "Das cool tho", "Hmm I like it, what else?", "Wow you stronk", "xD",  "All the best G", "Does this dude always talk like that? :sweat_smile:", "Ah, I see now", "Cool", "huh?\noh got it now, go ahead", "Hmm, not convinced of that fine sir"]
 randomResponseChannels = [867597533458202647, 867600399879372820, 867600420246913054, 867601016006770718, 867605832401289247, 868447164999815229, 874471834370850826, 910012458943533057, 887197847240446004]
 zacResponses = ["Yes, my man, my king, my owner", "Shut up Zac ok? I'm busy doin stuff", ":heart:", "You da best Zackie", ":rolling_eyes:", "Eh don't mind him guys that's just Zac", "Don't worry about him guys", "How may I be of service fine owner?", "Mate you really gotta fix my coding NOW, there's something that's annoying me in there OK????", "I wuv Gravity Destroyers :star_struck:", "You da man"]
-mentionResponses = ["Hello :) I see you've mentioned me, thanks for doing that but I'm not chat bot so I can't really help there", "Hallo", "Me not chatbot sorry :(", "You talkin trash over there brotha?", ":)", "I'm not chatbot fine sir, however I assure you there are plenty of Gravity Destroyers willing to talk", ":thinking:", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "PING", "bruh...", "wow, ok", "long time no see :blush:", "man i told you to stop pinging me", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "STOP PINGING ME OR ELSE", "<3", "hehe", "...", "kk", "xD np man", "oh anytimme", "yes yes yes", "meh", "huh, ohh wait", "bruh...", ":joy:", "wow this dude doesn't stop doea he"]
+mentionResponses = ["Hello :) I see you've mentioned me, thanks for doing that but I'm not chat bot so I can't really help there", "Hallo", "Me not chatbot sorry :(", "You talkin trash over there brotha?", ":)", "I'm not a chatbot fine sir, however I assure you there are plenty of Gravity Destroyers willing to talk", ":thinking:", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "PING", "bruh...", "wow, ok", "long time no see :blush:", "man i told you to stop pinging me", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "STOP PINGING ME OR ELSE", "<3", "hehe", "...", "kk", "xD np man", "oh anytimme", "yes yes yes", "meh", "huh, ohh wait", "bruh...", ":joy:", "wow this dude doesn't stop doea he"]
 meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you", "hate you", "shut your", "shush", "shsh", "piss off", "buzz off", "shutup"]
-rowanMotivation = ["https://www.youtube.com/watch?v=T2zLJW9l-Qw&", "DISCIPLINE, INTERNAL MOTIVATION > external motivation", "HUH? YOU WANT MOTIVATION???\nIt's simple mate, you want to get somewhere? What do you need to do to get there? Now do it.", "**You wanna workout? How about, just do it. Or maybe rethink your training if you're not enjoying it**", "Ay you want motivation, how about thinking about what you want, why you want it and then it'll be easy to go and do what you need to do.\nJust remember, we're here for you :blush:", "It's in you man, I know it is, you just gotta push yourself a little and you'll get it", "*Ay gut naw excooses*\nJust go for it brah", "*I'm tired today, idk if i want to teach at the school today :weary:*\nI think you agree that sounds pretty lame. It's ok to feel tired but it isn't ok to give up. Lets go now man", "SHUT UP AND WORKOUT", ":rolling_eyes: you have everything you need internally **SCHOOL ADJOURNED**", "Not sayin your lazy but... my magic 8ball like intuition says you can use this https://www.youtube.com/watch?v=lj5SzG4XHJo", "Unkown source, wait huh? https://cdn.discordapp.com/attachments/926312175943962674/927406438886801529/v09044g40000c7937ijc77ub2at7lpmg.mp4", "https://pbs.twimg.com/media/BmIY5ptIMAAjRWE.jpg", "**Rise Above**\nttps://www.youtube.com/watch?v=8VGI7PX8mic", "**Your Call to Workout**\nhttps://www.youtube.com/watch?v=LFWBYqe-GiA", "https://i.imgur.com/OPdGqUy.png", "https://cdn.discordapp.com/attachments/926312175943962674/932831810717626448/v09044g40000c7ed5vjc77u7187vb7l0.mp4", "https://cdn.discordapp.com/attachments/925106780831350784/936863287860142130/encouraging-quotes10-1607057437.jpg", "https://media.discordapp.net/attachments/789069071718678548/812031951505588234/image0.jpg?width=430&height=430"]
+rowanMotivation = ["https://www.youtube.com/watch?v=T2zLJW9l-Qw&", "DISCIPLINE, INTERNAL MOTIVATION > external motivation", "HUH? YOU WANT MOTIVATION???\nIt's simple mate, you want to get somewhere? What do you need to do to get there? Now do it.", "**You wanna workout? How about, just do it. Or maybe rethink your training if you're not enjoying it**", "Ay you want motivation, how about thinking about what you want, why you want it and then it'll be easy to go and do what you need to do.\nJust remember, we're here for you :blush:", "It's in you man, I know it is, you just gotta push yourself a little and you'll get it", "*Ay gut naw excooses*\nJust go for it brah", "*I'm tired today, idk if i want to teach at the school today :weary:*\nI think you agree that sounds pretty lame. It's ok to feel tired but it isn't ok to give up. Lets go now man", "SHUT UP AND WORKOUT", ":rolling_eyes: you have everything you need internally **SCHOOL ADJOURNED**", "Not sayin your lazy but... my magic 8ball like intuition says you can use this https://www.youtube.com/watch?v=lj5SzG4XHJo", "Unkown source, wait huh? https://cdn.discordapp.com/attachments/926312175943962674/927406438886801529/v09044g40000c7937ijc77ub2at7lpmg.mp4", "https://pbs.twimg.com/media/BmIY5ptIMAAjRWE.jpg", "**Rise Above**\nhttps://www.youtube.com/watch?v=8VGI7PX8mic", "**Your Call to Workout**\nhttps://www.youtube.com/watch?v=LFWBYqe-GiA", "https://i.imgur.com/OPdGqUy.png", "https://cdn.discordapp.com/attachments/926312175943962674/932831810717626448/v09044g40000c7ed5vjc77u7187vb7l0.mp4", "https://cdn.discordapp.com/attachments/925106780831350784/936863287860142130/encouraging-quotes10-1607057437.jpg", "https://media.discordapp.net/attachments/789069071718678548/812031951505588234/image0.jpg?width=430&height=430"]
 onCoolDownResponse = ["Why yall so impatient huh", "Hey matey, command on cooldown, sowwy", ":moyai:", "Patience human, patience", "Patience is a virtue :moyai:", ":rolling_eyes: :rolling_eyes:", "Your impatience is enough to outlast empires", "*Dear human the impatience of your deeds make leopards slow as snails*"]
 reminderFunnyResponse = ["Forever more ", "Man something is really bothering me, *why do they call it rush hour... when NOBODY MOVES???", "Always my brother, my captain, my king", "Hehe alright, no guarantees tho", "Monica just invited me to her birthday party, did you HAVE to ask me to do this now????\n*sighs*\nConsider it done", "Yessir", "What sort of a reminder is that, huh", ":D", "*mischevious grin* Well, we'll see about *that* one"]
 whatsUpResponse = ["Umm. The sky?", "What's up? THE SKY MATE", "The sky :), or in your case the roof", "Da roof", "The roof is up, but if you mean how am I, I've very well thanks how are you?"]
+caribbean_response = ["https://www.youtube.com/watch?v=6zTc2hD2npA", "https://caribbeanpot.com", "Yeah I'll have some of that free fruit thx :))", "DOES THE SUN EVER GO DOWN THERE???"]
+british_response = ["ALL HE DOES IS TALK ABOUT THE WEATHER", "Tea, tea, tea, WHAT ABOUT COFFEE?"]
+russian_response = ["wwwwaht? im outta here boi", "russian?? RUN\n||vietnam flashbacks||", "https://tenor.com/view/putin-dance-gif-9909272"]
+canadian_response = ["I hope he's in the maple syrup cartel *hopeful face*", "Is she always this polite?", "oh one of *those* i get it"]
+random_vid = ["https://www.youtube.com/watch?v=Cm15bg1LlAI", "https://www.youtube.com/watch?v=N_7A4Z2zubQ", "https://www.youtube.com/watch?v=WULYEegtTGc", "https://www.youtube.com/watch?v=X3BJYAOIcrM", "https://www.youtube.com/watch?v=4705RoBc21M", "https://www.youtube.com/watch?v=8EEP_pQySEc", "https://tenor.com/view/flavortown-monkey-review-dose-monki-monke-gif-21419037", "https://www.youtube.com/watch?v=JgGfj2r024I", "https://www.youtube.com/watch?v=t_YyrMV7SuE", "https://www.youtube.com/watch?v=PeT2gEj84d4", "https://www.youtube.com/watch?v=YQHE2lT5RP8", "https://www.youtube.com/watch?v=3Lyex2tSUyA", "https://www.youtube.com/watch?v=CIMmK86vNYo", "https://www.youtube.com/watch?v=GyRIk99toRE", "https://www.youtube.com/watch?v=YdydNoqbBmI", "https://www.youtube.com/watch?v=Db9_xsDr5PM", "https://www.youtube.com/watch?v=srD4Rxm2IK0&", "https://www.youtube.com/watch?v=Cxqca4RQd_M", "https://www.youtube.com/watch?v=l7K3y4EPq10", "https://www.youtube.com/watch?v=ahvrHrPGi1k", "https://www.youtube.com/watch?v=5j9mY95zjUc", "https://www.youtube.com/watch?v=t_YyrMV7SuE", "https://www.youtube.com/watch?v=W0_Tt0En7v4", "https://www.youtube.com/watch?v=ReHdQsB5rI8", "https://www.youtube.com/watch?v=-vZXgApsPCQ", "https://www.youtube.com/watch?v=d-0vbvy2ip4", "**Warning: inappropriate language, do not watch if underage:**\nhttps://www.youtube.com/watch?v=8TtXhpd9yAg", "https://www.youtube.com/watch?v=BLB2Mrvh44A", "https://www.youtube.com/watch?v=zkFZWqB4zic", "https://www.youtube.com/watch?v=CFdZWgiAj8I", "https://www.youtube.com/watch?v=NTjjrymeavU", "https://www.youtube.com/watch?v=iwZkHC9KNGM", "https://www.youtube.com/watch?v=YU8aai27vk0", "https://www.youtube.com/watch?v=gXbNoqYNDXM", "https://www.youtube.com/watch?v=QsUYXjcV5h0", "https://www.youtube.com/watch?v=Qw556WICRS4", "https://www.youtube.com/watch?v=0WqO8PHQpEo", "https://www.youtube.com/watch?v=a5xGxkg07FQ", "https://www.youtube.com/watch?v=HFMSGMPrMHY", "https://www.youtube.com/watch?v=eqq5gmHFe5k&", "https://www.youtube.com/watch?v=q9ijfnlF_24", "https://www.youtube.com/watch?v=wCS2x3NtAjA", "https://www.youtube.com/watch?v=OElX_Ta7dpg"]
+funny_about_me = ["Global warming hoax? Call that ice CAP"]
 
 @bot.event
 async def on_ready():
@@ -109,22 +114,22 @@ async def about(ctx):
     await asyncio.sleep(5)
     async with ctx.typing():
         await asyncio.sleep(7)
-    await ctx.send("```---```\n*Ladies and Gentlemen, skinny and stout,*\n*I’ll tell you a tale I know nothing about*\n*The Admission is free, so pay at the door,*\n*Now pull up a chair and sit on the floor*")
+    await ctx.send("```---```\n*Ladies and Gentlemen, skinny and stout,*\n*I’ll tell you a tale I know nothing about*\n*The Admission is free, so pay at the door,*\n*Now pull up a chair and sit on the floor*", delete_after = 25)
     await asyncio.sleep(5)
     async with ctx.typing():
         await asyncio.sleep(7)
-    await ctx.send("*On a bright day in the middle of the night*\n*Two dead boys got up to fight*\n*Back to back they faced eachother*\n*Drew their swords and shot eachother*\n*The deaf policeman heard the noise*\n*And saved the lives of the two dead boys*\n*If you don't believe my story is true*\n*Ask the blind man, he saw it too*")
+    await ctx.send("*On a bright day in the middle of the night*\n*Two dead boys got up to fight*\n*Back to back they faced eachother*\n*Drew their swords and shot eachother*\n*The deaf policeman heard the noise*\n*And saved the lives of the two dead boys*\n*If you don't believe my story is true*\n*Ask the blind man, he saw it too*", delete_after = 20)
     await asyncio.sleep(3)
     async with ctx.typing():
         await asyncio.sleep(3)    
-    await ctx.send("*Now you've heard the truth in my fable*\n*Have a laugh and cry on the table*")
+    await ctx.send("*Now you've heard the truth in my fable*\n*Have a laugh and cry on the table*", delete_after = 14)
     await asyncio.sleep(2)
     async with ctx.typing():
         await asyncio.sleep(5)
-    await ctx.send("HAHAHA, did you really think I'd give you an answer?!!")
+    await ctx.send("HAHAHA, did you really think I'd give you an answer?!!", delete_after = 12)
     async with ctx.typing():
         await asyncio.sleep(5)
-    await ctx.send("WELL, ||you'd be right|| just after a little wild ride ;) ;)")
+    await ctx.send("WELL, ||you'd be right|| just after a little wild ride ;) ;)", delete_after = 10)
     async with ctx.typing():
         await asyncio.sleep(5)
     await ctx.send("> I'm the Gravity Destroyers Bot :)\n> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
@@ -140,12 +145,66 @@ async def motivation(ctx):
         await asyncio.sleep(3)
     await ctx.send(random.choice(rowanMotivation))
 
-#create actual remind me command
-# help me
-#acutally need help
+@bot.command()
+async def bump_rewards(ctx):
+    await ctx.send(
+        "<@&929992167949209601> 5 bumps\n<@&929992275302432808> 15 bumps\n<@&929992208826892298> 30 bumps\n<@&929992243270537256> 50 bumps\n<@&929992377706369034> 75 bumps\n<@&929992347876479006> 105 bumps\n<@&929992418915405875> 140 bumps"
+            )
+
+@bot.slash_command(guild_ids=[867597533458202644])
+async def bumping_rewards(ctx):
+    """Shows the role rewards for each number of bumps"""
+    await ctx.respond(
+        "<@&929992167949209601> 5 bumps\n<@&929992275302432808> 15 bumps\n<@&929992208826892298> 30 bumps\n<@&929992243270537256> 50 bumps\n<@&929992377706369034> 75 bumps\n<@&929992347876479006> 105 bumps\n<@&929992418915405875> 140 bumps"
+            )
+@bot.command()
+@commands.cooldown(1,60,commands.BucketType.user)
+async def motivation_quote(ctx):
+    async with ctx.typing():
+        await asyncio.sleep(3)
+        raw_quote = requests.get('https://zenquotes.io/?api=random&key=2b03ca0a25fce4fcb2bc9a77d7302d3a11263a23')
+        quote_content = raw_quote.content
+        loaded_quote = json.loads(quote_content)
+        unlisted_quote = loaded_quote[0]
+        finished_quote = unlisted_quote["q"]
+        await ctx.send(f"{finished_quote}")
+
+@bot.slash_command(guild_ids=[867597533458202644])
+async def motivational_quote(ctx):
+    """Hits you with some great motivational quotes"""
+    raw_quote = requests.get('https://zenquotes.io/?api=random&key=2b03ca0a25fce4fcb2bc9a77d7302d3a11263a23')
+    quote_content = raw_quote.content
+    loaded_quote = json.loads(quote_content)
+    unlisted_quote = loaded_quote[0]
+    finished_quote = unlisted_quote["q"]
+    await ctx.respond(f"{finished_quote}")
+
+@bot.slash_command(guild_ids=[867597533458202644])
+async def random_words(ctx):
+    """Gives your bored self 10 random words"""
+    finalWords = ""
+    raw_get = requests.get('https://random-word-api.herokuapp.com/word?number=10')
+    word_content = raw_get.content
+    loaded_words = json.loads(word_content)
+    for word in loaded_words:
+        finalWords = finalWords + word + " "
+    await ctx.respond(f"{finalWords.capitalize()}")
+
+@bot.slash_command(guild_ids=[867597533458202644])
+async def landscape_picture(ctx):
+    pass
 
 
+#create remindme command
 
+@bot.command()
+async def random_yt(ctx):
+    await ctx.send(random.choice(random_vid))
+
+@bot.slash_command(guild_ids=[867597533458202644])
+async def random_yt_vid(ctx):
+    """Provides a random yt vid from a list for your enjoyment"""
+    await ctx.respond(random.choice(random_vid))
 
 @bot.event
 async def on_command_error(ctx,error):
@@ -169,10 +228,9 @@ async def on_message(message):
                 # async with message.channel.typing():
                 #     await asyncio.sleep(3)
                 await message.channel.send(random.choice(randomReminders))
-        if message.content.lower() == "!d bump":
-            bumpCounter = 1
-            originalMessager = str(message.author)
-            originalMessagerId  = message.author.id
+        if message.author.id == 931377734821773413:
+            if message.content == ":flushed:":
+                await message.channel.send("So um how are you today Adrienne?")
         if "Thank you for bumping our Server! If you haven't already, please go to" in message.content and message.author.id == 735147814878969968:
             bumper = message.mentions
             bumperId = ""
@@ -261,7 +319,11 @@ async def on_message(message):
         # if ("sup", "wassup", "whats up", "what's up") in message.content.lower():
         #     await message.channel.send(random.choice(whatsUpResponse))
         if "legs" in message.content.lower() and message.author.id != 889042207544340511:
-            await message.channel.send("`l e g s` ??? Did someone say legs?")
+            number = random.randint(1,5)
+            if number == 1:
+                await message.channel.send("`l e g s` ??? Did someone say legs?")
+            elif number == 2:
+                await message.channel.send("Oof xD")
         if "nice" in message.content.lower():
             chance = random.randint(1, 3)
             if chance == 1:
