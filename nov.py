@@ -19,11 +19,28 @@ password = os.getenv("password")
 mydb = mysql.connector.connect(
   host="containers-us-west-23.railway.app",
   user="root",
-  password=password,#sus person, why are you reading this line??
+  password=password, # sus person, why are you reading this line??
   database="railway",
   port="6499"
 )
 mycursor = mydb.cursor()
+
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣿⣿⣷⣶⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣾⣿⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⡟⠁⣰⣿⣿⣿⡿⠿⠻⠿⣿⣿⣿⣿⣧⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⠏⠀⣴⣿⣿⣿⠉⠀⠀⠀⠀⠀⠈⢻⣿⣿⣇⠀⠀⠀
+# ⠀⠀⠀⠀⢀⣠⣼⣿⣿⡏⠀⢠⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⡀⠀⠀
+# ⠀⠀⠀⣰⣿⣿⣿⣿⣿⡇⠀⢸⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡇⠀⠀
+# ⠀⠀⢰⣿⣿⡿⣿⣿⣿⡇⠀⠘⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⢀⣸⣿⣿⣿⠁⠀⠀
+# ⠀⠀⣿⣿⣿⠁⣿⣿⣿⡇⠀⠀⠻⣿⣿⣿⣷⣶⣶⣶⣶⣶⣿⣿⣿⣿⠃⠀⠀⠀
+# ⠀⢰⣿⣿⡇⠀⣿⣿⣿⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀
+# ⠀⢸⣿⣿⡇⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠉⠛⠛⠛⠉⢉⣿⣿⠀⠀⠀⠀⠀⠀
+# ⠀⢸⣿⣿⣇⠀⣿⣿⣿⠀s⠀⠀ ⢀u⣤⣤⡀ s⢸⣿⣿⣿⣷⣦⠀⠀⠀
+# ⠀⠀⢻⣿⣿⣶⣿⣿⣿⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣦⡀⠀⠉⠉⠻⣿⣿⡇⠀⠀
+# ⠀⠀⠀⠛⠿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⠀⠈⠹⣿⣿⣇⣀⠀⣠⣾⣿⣿⡇⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣦⣤⣤⣤⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⣿⣿⣿⣿⣿⣿⠿⠋⠉⠛⠋⠉⠉⠁⠀⠀⠀⠀
+# ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠁
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=".", intents = intents)
@@ -31,12 +48,15 @@ bot = commands.Bot(command_prefix=".", intents = intents)
 @bot.slash_command(guild_ids=[867597533458202644])  # create a slash command for the supplied guilds
 async def hello(ctx):
     """Say hello to the bot"""  # the command description can be supplied as the docstring
-    await ctx.respond(f"Hello {ctx.author}!")
-
-# @slashBot.command()
-# async def hello(ctx):
-#     await ctx.respond(f"Hello {ctx.author}!")
-
+    decide = random.randint(1,4)
+    if decide == 1:
+        await ctx.respond(f"HEY BOI {ctx.author}!")
+    elif decide == 2:
+        await ctx.respond(f"Hellooo {ctx.author}!")
+    elif decide == 3:
+        await ctx.respond(f"**PING** {ctx.author}!")
+    else:
+        await ctx.respond(f"Sup cali boii :)) {ctx.author}")
 
 helperResponseA = ["Alright, Gravity Destroyers, sending help for you now", "Help? Someone needs help? Right away bois.", "I was sleeping, did you have to wake me up with this help request? Send help now.", "Help? Only God can help you!!", "Aww, you need help fam. Dw I'm here for you", "Help request that's noice", "HELP??? SURE MATE", "K alerting the martian embassy help is required"]
 helperResponseB = "**Help request**\n> Please react with <:agreentick:875244017833639956> below this message to enable this ping request, 3 votes excluding me are required unless a moderator approves the request."
@@ -57,30 +77,14 @@ russian_response = ["wwwwaht? im outta here boi", "russian?? RUN\n||vietnam flas
 canadian_response = ["I hope he's in the maple syrup cartel *hopeful face*", "Is she always this polite?", "oh one of *those* i get it"]
 random_vid = ["https://www.youtube.com/watch?v=Cm15bg1LlAI", "https://www.youtube.com/watch?v=N_7A4Z2zubQ", "https://www.youtube.com/watch?v=WULYEegtTGc", "https://www.youtube.com/watch?v=X3BJYAOIcrM", "https://www.youtube.com/watch?v=4705RoBc21M", "https://www.youtube.com/watch?v=8EEP_pQySEc", "https://tenor.com/view/flavortown-monkey-review-dose-monki-monke-gif-21419037", "https://www.youtube.com/watch?v=JgGfj2r024I", "https://www.youtube.com/watch?v=t_YyrMV7SuE", "https://www.youtube.com/watch?v=PeT2gEj84d4", "https://www.youtube.com/watch?v=YQHE2lT5RP8", "https://www.youtube.com/watch?v=3Lyex2tSUyA", "https://www.youtube.com/watch?v=CIMmK86vNYo", "https://www.youtube.com/watch?v=GyRIk99toRE", "https://www.youtube.com/watch?v=YdydNoqbBmI", "https://www.youtube.com/watch?v=Db9_xsDr5PM", "https://www.youtube.com/watch?v=srD4Rxm2IK0&", "https://www.youtube.com/watch?v=Cxqca4RQd_M", "https://www.youtube.com/watch?v=l7K3y4EPq10", "https://www.youtube.com/watch?v=ahvrHrPGi1k", "https://www.youtube.com/watch?v=5j9mY95zjUc", "https://www.youtube.com/watch?v=t_YyrMV7SuE", "https://www.youtube.com/watch?v=W0_Tt0En7v4", "https://www.youtube.com/watch?v=ReHdQsB5rI8", "https://www.youtube.com/watch?v=-vZXgApsPCQ", "https://www.youtube.com/watch?v=d-0vbvy2ip4", "**Warning: inappropriate language, do not watch if underage:**\nhttps://www.youtube.com/watch?v=8TtXhpd9yAg", "https://www.youtube.com/watch?v=BLB2Mrvh44A", "https://www.youtube.com/watch?v=zkFZWqB4zic", "https://www.youtube.com/watch?v=CFdZWgiAj8I", "https://www.youtube.com/watch?v=NTjjrymeavU", "https://www.youtube.com/watch?v=iwZkHC9KNGM", "https://www.youtube.com/watch?v=YU8aai27vk0", "https://www.youtube.com/watch?v=gXbNoqYNDXM", "https://www.youtube.com/watch?v=QsUYXjcV5h0", "https://www.youtube.com/watch?v=Qw556WICRS4", "https://www.youtube.com/watch?v=0WqO8PHQpEo", "https://www.youtube.com/watch?v=a5xGxkg07FQ", "https://www.youtube.com/watch?v=HFMSGMPrMHY", "https://www.youtube.com/watch?v=eqq5gmHFe5k&", "https://www.youtube.com/watch?v=q9ijfnlF_24", "https://www.youtube.com/watch?v=wCS2x3NtAjA", "https://www.youtube.com/watch?v=OElX_Ta7dpg"]
 funny_about_me = ["Global warming hoax? Call that ice CAP"]
+random_yt_vid_msg = ["Here ya go mate", "Boredom DESTROYED", "I never said it would be good but here:", "Here it is", "Well well well, if it isn't another bored human", "Bored human incoming", "Have a laff", "Oh i hate this one man \*vomitting face\*", "lmao", "Sure", "Alr, no guarantees tho", "Imma bet this gonna be a Kitty Flanagan vid\nOh HAHAHA"]
+bumper_message = ["Ayo bro, thanks a lot for bumping <3", "I like it :)", "Thanks for bumping mate", "Oh YEAH, thanks for bumping", "Bumping hero is BACK", "<3", "Bump bump bump, I wonder 'how is trump?'", "Tysm for the bump man", "I gave that a thump, he gave it a bump, thank you very much, now may I ask, are you Dutch?", "Shut up Grumpbot, why don't you thank the bumper for once", ":)))", "That's the wayyy, thanks :grin:", ":grin:", "ooo yeaaa boiii", "Bump to the top and never stop, ty sir", ":laughing: :pray:", "ty ty man"]
+
 
 @bot.event
 async def on_ready():
     print('Bot is ready!')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
-    #server = bot.get_guild(867597533458202644) # get Grav Destroyers server
-    #channel = server.get_channel(867641250139602994) #get announcements channel
-    #await channel.send("Fine men and women of the Gravity Destroyers server\nI take responsibility for the raid earlier today, for those who don't know what happend, I spammed about 100k of the same message in a channel then began spreading into other channels due to a bug in my code.\nMy sincerest apologies to all the Gravity Destroyers who found out the truth that some things are even greater than Gravity, one of those things being... my power.\nThat being said, I live to serve, therefore, the bugs in my code have been fixed, <@760345587802964010> **we're never gonna stop teasing you about this**\n\nSeriously tho guys, I'm really sorry about that")
-#repush
-    #server = bot.get_guild(867597533458202644)
-    #channel = server.get_channel(867597533458202647)
-    # while True: 
-    #     await channel.send("Check <#867641250139602994> yall and please fill this form https://dyno.gg/form/560a2055 **it's literally 20 seconds to fill**")
-    #     await asyncio.sleep(1800)
-
- 
-# @bot.slash_command(guild_ids=[867597533458202644])
-# async def newyeargoal(ctx,*,goal):
-#     await ctx.respond(f"Yessir\nYour goal is `{goal}`")
-#     person = str(ctx.author)
-#     finalValues = (person, goal)
-#     sql = "INSERT INTO test_goals_2002 (user, goals) VALUES (%s, %s)"
-#     mycursor.execute(sql, finalValues)
-#     mydb.commit()
 
 @commands.command()
 async def compliment(ctx, user):
@@ -148,7 +152,8 @@ async def motivation(ctx):
 @bot.command()
 async def bump_rewards(ctx):
     await ctx.send(
-        "<@&929992167949209601> 5 bumps\n<@&929992275302432808> 15 bumps\n<@&929992208826892298> 30 bumps\n<@&929992243270537256> 50 bumps\n<@&929992377706369034> 75 bumps\n<@&929992347876479006> 105 bumps\n<@&929992418915405875> 140 bumps"
+        "<@&929992167949209601> 5 bumps\n<@&929992275302432808> 15 bumps\n<@&929992208826892298> 30 bumps\n<@&929992243270537256> 50 bumps\n<@&929992377706369034> 75 bumps\n<@&929992347876479006> 105 bumps\n<@&929992418915405875> 140 bumps",
+        allowed_mentions=AllowedMentions.none()
             )
 
 @bot.slash_command(guild_ids=[867597533458202644])
@@ -199,12 +204,12 @@ async def landscape_picture(ctx):
 
 @bot.command()
 async def random_yt(ctx):
-    await ctx.send(random.choice(random_vid))
+    await ctx.send(f"{random.choice(random_yt_vid_msg)}\n{random.choice(random_vid)}")
 
 @bot.slash_command(guild_ids=[867597533458202644])
 async def random_yt_vid(ctx):
     """Provides a random yt vid from a list for your enjoyment"""
-    await ctx.respond(random.choice(random_vid))
+    await ctx.respond(f"{random.choice(random_yt_vid_msg)}\n{random.choice(random_vid)}")
 
 @bot.event
 async def on_command_error(ctx,error):
@@ -304,9 +309,10 @@ async def on_message(message):
                         allowed_mentions = AllowedMentions.none()
                             )
                 else:
-                    await message.channel.send(f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\nRn this is a feature in the works, more soon hopefully :)")
-        # if "Bump done" in message.content and message.author.name == "DISBOARD" and bumpCounter == 1:
-        #     bumpCounter = 0
+                    await message.channel.send(
+                        f"{random.choice(bumper_message)}\nYou now have {newPoints} points\n`.bump_rewards` `/bumping_rewards`",
+                        allowed_mentions = AllowedMentions.none()
+                            )
 
         # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
         #     await message.channel.send(
@@ -365,12 +371,6 @@ async def on_reaction_add(reaction, user):
         emoji = reaction.emoji
         #await reaction.message.add_reaction(str(emoji))
         if reaction.message.author.id == 889042207544340511 and reaction.message.content == helperResponseB:
-            #if reaction.count == 2:
-            # if discord.utils.get(reaction.message.reactions, emoji='<:agreentick:913047736876691557>').count == 2:
-            #     await reaction.message.channel.send("ayo bois")
-            #await reaction.message.channel.send(reaction.emoji)
-            #print(str(reaction.emoji))
-            #print(user.roles)
 
             if str(reaction.emoji) == '<:agreentick:875244017833639956>' and reaction.count > 2:
                 await reaction.message.channel.send(random.choice(helperResponseC))
@@ -391,14 +391,7 @@ async def on_reaction_add(reaction, user):
 
                     
             
-# bot.add_command(testing)
 bot.add_command(helperping)
 bot.add_command(compliment)
 bot.add_command(about)
 bot.run(token)
-
-# def count(message):
-#     for reaction in message.reactions:
-#         if reaction.emoji == '✅':
-#             return reaction.count
-#     return 0
