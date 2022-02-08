@@ -45,7 +45,7 @@ mycursor = mydb.cursor()
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=".", intents = intents)
 
-@bot.slash_command(guild_ids=[867597533458202644])  # create a slash command for the supplied guilds
+@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])  # create a slash command for the supplied guilds
 async def hello(ctx):
     """Say hello to the bot"""  # the command description can be supplied as the docstring
     decide = random.randint(1,4)
@@ -67,7 +67,7 @@ randomResponseChannels = [867597533458202647, 867600399879372820, 86760042024691
 zacResponses = ["Yes, my man, my king, my owner", "Shut up Zac ok? I'm busy doin stuff", ":heart:", "You da best Zackie", ":rolling_eyes:", "Eh don't mind him guys that's just Zac", "Don't worry about him guys", "How may I be of service fine owner?", "Mate you really gotta fix my coding NOW, there's something that's annoying me in there OK????", "I wuv Gravity Destroyers :star_struck:", "You da man"]
 mentionResponses = ["Hello :) I see you've mentioned me, thanks for doing that but I'm not chat bot so I can't really help there", "Hallo", "Me not chatbot sorry :(", "You talkin trash over there brotha?", ":)", "I'm not a chatbot fine sir, however I assure you there are plenty of Gravity Destroyers willing to talk", ":thinking:", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "PING", "bruh...", "wow, ok", "long time no see :blush:", "man i told you to stop pinging me", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "STOP PINGING ME OR ELSE", "<3", "hehe", "...", "kk", "xD np man", "oh anytimme", "yes yes yes", "meh", "huh, ohh wait", "bruh...", ":joy:", "wow this dude doesn't stop doea he"]
 meanWords = ["stfu", "shut up", "shut the fuck up", "fuck you", "hate you", "shut your", "shush", "shsh", "piss off", "buzz off", "shutup"]
-rowanMotivation = ["https://www.youtube.com/watch?v=T2zLJW9l-Qw&", "DISCIPLINE, INTERNAL MOTIVATION > external motivation", "HUH? YOU WANT MOTIVATION???\nIt's simple mate, you want to get somewhere? What do you need to do to get there? Now do it.", "**You wanna workout? How about, just do it. Or maybe rethink your training if you're not enjoying it**", "Ay you want motivation, how about thinking about what you want, why you want it and then it'll be easy to go and do what you need to do.\nJust remember, we're here for you :blush:", "It's in you man, I know it is, you just gotta push yourself a little and you'll get it", "*Ay gut naw excooses*\nJust go for it brah", "*I'm tired today, idk if i want to teach at the school today :weary:*\nI think you agree that sounds pretty lame. It's ok to feel tired but it isn't ok to give up. Lets go now man", "SHUT UP AND WORKOUT", ":rolling_eyes: you have everything you need internally **SCHOOL ADJOURNED**", "Not sayin your lazy but... my magic 8ball like intuition says you can use this https://www.youtube.com/watch?v=lj5SzG4XHJo", "Unkown source, wait huh? https://cdn.discordapp.com/attachments/926312175943962674/927406438886801529/v09044g40000c7937ijc77ub2at7lpmg.mp4", "https://pbs.twimg.com/media/BmIY5ptIMAAjRWE.jpg", "**Rise Above**\nhttps://www.youtube.com/watch?v=8VGI7PX8mic", "**Your Call to Workout**\nhttps://www.youtube.com/watch?v=LFWBYqe-GiA", "https://i.imgur.com/OPdGqUy.png", "https://cdn.discordapp.com/attachments/926312175943962674/932831810717626448/v09044g40000c7ed5vjc77u7187vb7l0.mp4", "https://cdn.discordapp.com/attachments/925106780831350784/936863287860142130/encouraging-quotes10-1607057437.jpg", "https://media.discordapp.net/attachments/789069071718678548/812031951505588234/image0.jpg?width=430&height=430"]
+rowanMotivation = ["https://www.youtube.com/watch?v=T2zLJW9l-Qw&", "DISCIPLINE, INTERNAL MOTIVATION > external motivation", "HUH? YOU WANT MOTIVATION???\nIt's simple mate, you want to get somewhere? What do you need to do to get there? Now do it.", "**You wanna workout? How about, just do it. Or maybe rethink your training if you're not enjoying it**", "Ay you want motivation, how about thinking about what you want, why you want it and then it'll be easy to go and do what you need to do.\nJust remember, we're here for you :blush:", "It's in you man, I know it is, you just gotta push yourself a little and you'll get it", "*Ay gut naw excooses*\nJust go for it brah", "*I'm tired today, idk if i want to teach at the school today :weary:*\nI think you agree that sounds pretty lame. It's ok to feel tired but it isn't ok to give up. Lets go now man", "SHUT UP AND WORKOUT", ":rolling_eyes: you have everything you need internally **SCHOOL ADJOURNED**", "Not sayin your lazy but... my magic 8ball like intuition says you can use this https://www.youtube.com/watch?v=lj5SzG4XHJo", "Unkown source, wait huh? https://cdn.discordapp.com/attachments/926312175943962674/927406438886801529/v09044g40000c7937ijc77ub2at7lpmg.mp4", "https://pbs.twimg.com/media/BmIY5ptIMAAjRWE.jpg", "**Rise Above**\nhttps://www.youtube.com/watch?v=8VGI7PX8mic", "**Your Call to Workout**\nhttps://www.youtube.com/watch?v=LFWBYqe-GiA", "https://i.imgur.com/OPdGqUy.png", "https://cdn.discordapp.com/attachments/926312175943962674/932831810717626448/v09044g40000c7ed5vjc77u7187vb7l0.mp4", "https://cdn.discordapp.com/attachments/925106780831350784/936863287860142130/encouraging-quotes10-1607057437.jpg", "https://media.discordapp.net/attachments/789069071718678548/812031951505588234/image0.jpg?width=430&height=430", "https://www.youtube.com/watch?v=PjvTTfbpWjY"]
 onCoolDownResponse = ["Why yall so impatient huh", "Hey matey, command on cooldown, sowwy", ":moyai:", "Patience human, patience", "Patience is a virtue :moyai:", ":rolling_eyes: :rolling_eyes:", "Your impatience is enough to outlast empires", "*Dear human the impatience of your deeds make leopards slow as snails*"]
 reminderFunnyResponse = ["Forever more ", "Man something is really bothering me, *why do they call it rush hour... when NOBODY MOVES???", "Always my brother, my captain, my king", "Hehe alright, no guarantees tho", "Monica just invited me to her birthday party, did you HAVE to ask me to do this now????\n*sighs*\nConsider it done", "Yessir", "What sort of a reminder is that, huh", ":D", "*mischevious grin* Well, we'll see about *that* one"]
 whatsUpResponse = ["Umm. The sky?", "What's up? THE SKY MATE", "The sky :), or in your case the roof", "Da roof", "The roof is up, but if you mean how am I, I've very well thanks how are you?"]
@@ -79,7 +79,7 @@ random_vid = ["https://www.youtube.com/watch?v=Cm15bg1LlAI", "https://www.youtub
 funny_about_me = ["Global warming hoax? Call that ice CAP"]
 random_yt_vid_msg = ["Here ya go mate", "Boredom DESTROYED", "I never said it would be good but here:", "Here it is", "Well well well, if it isn't another bored human", "Bored human incoming", "Have a laff", "Oh i hate this one man \*vomitting face\*", "lmao", "Sure", "Alr, no guarantees tho", "Imma bet this gonna be a Kitty Flanagan vid\nOh HAHAHA"]
 bumper_message = ["Ayo bro, thanks a lot for bumping <3", "I like it :)", "Thanks for bumping mate", "Oh YEAH, thanks for bumping", "Bumping hero is BACK", "<3", "Bump bump bump, I wonder 'how is trump?'", "Tysm for the bump man", "I gave that a thump, he gave it a bump, thank you very much, now may I ask, are you Dutch?", "Shut up Grumpbot, why don't you thank the bumper for once", ":)))", "That's the wayyy, thanks :grin:", ":grin:", "ooo yeaaa boiii", "Bump to the top and never stop, ty sir", ":laughing: :pray:", "ty ty man"]
-
+manu_response = ["OH MY GOODNESS MANU, THIS IS THE 50th TIME", "Manu :weary: stop ittt", "Ok you're officially being extradite for emoji abuse :joy:", "Just give that poor frog and his eyes a rest ok Manu?"]
 
 @bot.event
 async def on_ready():
@@ -153,10 +153,10 @@ async def motivation(ctx):
 async def bump_rewards(ctx):
     await ctx.send(
         "<@&929992167949209601> 5 bumps\n<@&929992275302432808> 15 bumps\n<@&929992208826892298> 30 bumps\n<@&929992243270537256> 50 bumps\n<@&929992377706369034> 75 bumps\n<@&929992347876479006> 105 bumps\n<@&929992418915405875> 140 bumps",
-        allowed_mentions=AllowedMentions.none()
+        allowed_mentions = AllowedMentions.none()
             )
 
-@bot.slash_command(guild_ids=[867597533458202644])
+@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
 async def bumping_rewards(ctx):
     """Shows the role rewards for each number of bumps"""
     await ctx.respond(
@@ -174,7 +174,7 @@ async def motivation_quote(ctx):
         finished_quote = unlisted_quote["q"]
         await ctx.send(f"{finished_quote}")
 
-@bot.slash_command(guild_ids=[867597533458202644])
+@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
 async def motivational_quote(ctx):
     """Hits you with some great motivational quotes"""
     raw_quote = requests.get('https://zenquotes.io/?api=random&key=2b03ca0a25fce4fcb2bc9a77d7302d3a11263a23')
@@ -184,7 +184,7 @@ async def motivational_quote(ctx):
     finished_quote = unlisted_quote["q"]
     await ctx.respond(f"{finished_quote}")
 
-@bot.slash_command(guild_ids=[867597533458202644])
+@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
 async def random_words(ctx):
     """Gives your bored self 10 random words"""
     finalWords = ""
@@ -195,7 +195,7 @@ async def random_words(ctx):
         finalWords = finalWords + word + " "
     await ctx.respond(f"{finalWords.capitalize()}")
 
-@bot.slash_command(guild_ids=[867597533458202644])
+@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
 async def landscape_picture(ctx):
     pass
 
@@ -206,7 +206,7 @@ async def landscape_picture(ctx):
 async def random_yt(ctx):
     await ctx.send(f"{random.choice(random_yt_vid_msg)}\n{random.choice(random_vid)}")
 
-@bot.slash_command(guild_ids=[867597533458202644])
+@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
 async def random_yt_vid(ctx):
     """Provides a random yt vid from a list for your enjoyment"""
     await ctx.respond(f"{random.choice(random_yt_vid_msg)}\n{random.choice(random_vid)}")
@@ -257,7 +257,7 @@ async def on_message(message):
                 values = (bumperId, bumperName, 1)
                 mycursor.execute(insertBump, values)
                 mydb.commit()
-                await message.channel.send(f"Ayo bro, thanks a lot for bumping <3 you now have 1 point\nRn this is a feature in the works, more soon hopefully :)")
+                await message.channel.send(f"Ayo bro, thanks a lot for bumping YOUR FIRST BUMP <3 you now have 1 point\n`.bump_rewards` `/bumping_rewards`")
             elif entryExists == True:
                 newPoints = int(numberOfPoints) + 1
                 updateNumberOfPoints = "UPDATE bumping SET points = %s WHERE userId = %s"
@@ -335,6 +335,8 @@ async def on_message(message):
             if chance == 1:
                 emoji = discord.utils.get(bot.emojis, name='GESvibing')
                 await message.channel.send(str(emoji))
+        if message.content == "<:whenYaHomiesSaySomeWildStuff:880034495204577300>" and message.author.id == 610925167136342019:
+            await message.channel.send(random.choice(manu_response))
         for mention in message.mentions:
             if mention.id == 889042207544340511:
                 for meanWord in meanWords:
