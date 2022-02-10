@@ -341,6 +341,12 @@ async def on_message(message):
             await message.channel.send(random.choice(manu_response))
         if message.content == "<:xdd:883923624384405555>" and message.author.id == 610925167136342019:
             await message.channel.send(random.choice(["Banning Manu now", "*Dies from xdd overdose*", "The 86th time Manu send the xdd emoji:\nhttps://tenor.com/view/pain-painful-rip-gif-19017159", "Is this man always like that?"]))
+        if "<:xdd:883923624384405555>" in message.content and "<:whenYaHomiesSaySomeWildStuff:880034495204577300>" in message.content and message.author.id == 610925167136342019:
+            await message.channel.send("Manu thought he could trick me :smirk: NOT GONNA HAPPEN")
+        if "<:susge:905236296967004211>" in message.content and message.author.id == 610925167136342019:
+            await message.channel.send("We all know you're not suspicious of anything Manu :rofl: gotta love this dude")
+        if "<:banthonk:868445016983482388>" in message.content and message.author.id == 610925167136342019:
+            await message.channel.send("Imagine if Manu actually had a ban hammer, that would be the scariest day of everyone's life :joy: ... well maybe...")
         for mention in message.mentions:
             if mention.id == 889042207544340511:
                 for meanWord in meanWords:
