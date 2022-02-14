@@ -226,6 +226,11 @@ reddit = 867599777743372299
 @bot.event
 async def on_message(message):
     if message.author.id != 889042207544340511:
+        if not message.guild:
+            try:
+                await message.channel.send("Hey, you're kinda funny coming into my DMS, what dya want?")
+            except:
+                pass
         await bot.process_commands(message)
         meanResponse = False
         if message.channel.id in randomResponseChannels:
