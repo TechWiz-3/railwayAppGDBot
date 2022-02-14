@@ -80,6 +80,7 @@ funny_about_me = ["Global warming hoax? Call that ice CAP"]
 random_yt_vid_msg = ["Here ya go mate", "Boredom DESTROYED", "I never said it would be good but here:", "Here it is", "Well well well, if it isn't another bored human", "Bored human incoming", "Have a laff", "Oh i hate this one man \*vomitting face\*", "lmao", "Sure", "Alr, no guarantees tho", "Imma bet this gonna be a Kitty Flanagan vid\nOh HAHAHA"]
 bumper_message = ["Ayo bro, thanks a lot for bumping <3", "I like it :)", "Thanks for bumping mate", "Oh YEAH, thanks for bumping", "Bumping hero is BACK", "<3", "Bump bump bump, I wonder 'how is trump?'", "Tysm for the bump man", "I gave that a thump, he gave it a bump, thank you very much, now may I ask, are you Dutch?", "Shut up Grumpbot, why don't you thank the bumper for once", ":)))", "That's the wayyy, thanks :grin:", ":grin:", "ooo yeaaa boiii", "Bump to the top and never stop, ty sir", ":laughing: :pray:", "ty ty man"]
 manu_response = ["OH MY GOODNESS MANU, THIS IS THE 100th TIME", "Manu :weary: stop ittt", "Ok you're officially being extradited for emoji abuse :joy:", "Just give that poor frog and his eyes a rest ok Manu?", "Manu, I need your advise man, you and that frog's advice, I think, I think I think I've fallen in love??? shshshhshs", "xD I'm kinda starting to like you", ":laughing:", "Bruh i gotta tell u some weird ass stuff, this girl she... oh wait - DMs ;) ;)", ":rofl:", "What is it about that emoji loool"]
+sami_response = ["I'm good I'm good wbu girllll??", "https://tenor.com/view/craigferguson-how-dare-you-gif-5971332", "https://tenor.com/view/flirting-flirty-kiss-face-gif-18108646", "Are you always like this :blush: hehehe", "Ooo hahaha", ":heart:", "Your talk warms my heart", "Awwww", "Sami you're too cute for your own good", "Alr alr, anything to keep the peace with this girl", "Aww I'm very well thx how are you ma girl"] #902325784159584306
 
 @bot.event
 async def on_ready():
@@ -355,6 +356,8 @@ async def on_message(message):
                         meanResponse=True
                 if message.author.id == 760345587802964010 and meanResponse == False:
                     await message.channel.send(random.choice(zacResponses))
+                elif message.author.id == 902325784159584306 and meanResponse == False:
+                    await message.channe.send(random.choice(sami_response))
                 elif meanResponse == False:
                     await message.channel.send(random.choice(mentionResponses))
         if message.channel.id == reddit and message.author.id != 889042207544340511:
