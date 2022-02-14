@@ -357,7 +357,7 @@ async def on_message(message):
                 if message.author.id == 760345587802964010 and meanResponse == False:
                     await message.channel.send(random.choice(zacResponses))
                 elif message.author.id == 902325784159584306 and meanResponse == False:
-                    await message.channe.send(random.choice(sami_response))
+                    await message.channel.send(random.choice(sami_response))
                 elif meanResponse == False:
                     await message.channel.send(random.choice(mentionResponses))
         if message.channel.id == reddit and message.author.id != 889042207544340511:
