@@ -80,7 +80,7 @@ funny_about_me = ["Global warming hoax? Call that ice CAP"]
 random_yt_vid_msg = ["Here ya go mate", "Boredom DESTROYED", "I never said it would be good but here:", "Here it is", "Well well well, if it isn't another bored human", "Bored human incoming", "Have a laff", "Oh i hate this one man \*vomitting face\*", "lmao", "Sure", "Alr, no guarantees tho", "Imma bet this gonna be a Kitty Flanagan vid\nOh HAHAHA"]
 bumper_message = ["Ayo bro, thanks a lot for bumping <3", "I like it :)", "Thanks for bumping mate", "Oh YEAH, thanks for bumping", "Bumping hero is BACK", "<3", "Bump bump bump, I wonder 'how is trump?'", "Tysm for the bump man", "I gave that a thump, he gave it a bump, thank you very much, now may I ask, are you Dutch?", "Shut up Grumpbot, why don't you thank the bumper for once", ":)))", "That's the wayyy, thanks :grin:", ":grin:", "ooo yeaaa boiii", "Bump to the top and never stop, ty sir", ":laughing: :pray:", "ty ty man"]
 manu_response = ["OH MY GOODNESS MANU, THIS IS THE 100th TIME", "Manu :weary: stop ittt", "Ok you're officially being extradited for emoji abuse :joy:", "Just give that poor frog and his eyes a rest ok Manu?", "Manu, I need your advise man, you and that frog's advice, I think, I think I think I've fallen in love??? shshshhshs", "xD I'm kinda starting to like you", ":laughing:", "Bruh i gotta tell u some weird ass stuff, this girl she... oh wait - DMs ;) ;)", ":rofl:", "What is it about that emoji loool"]
-sami_response = ["I'm good I'm good wbu girllll??", "https://tenor.com/view/craigferguson-how-dare-you-gif-5971332", "https://tenor.com/view/flirting-flirty-kiss-face-gif-18108646", "Are you always like this :blush: hehehe", "Ooo hahaha", ":heart:", "Your talk warms my heart", "Awwww", "Sami you're too cute for your own good", "Alr alr, anything to keep the peace with this girl", "Aww I'm very well thx how are you ma girl"] #902325784159584306
+sami_response = ["I'm good I'm good wbu girllll??", "https://tenor.com/view/craigferguson-how-dare-you-gif-5971332", "https://tenor.com/view/flirting-flirty-kiss-face-gif-18108646", "Are you always like this :blush: hehehe", "Ooo hahaha", ":heart:", "Your talk warms my heart", "Awwww", "Sami you're too cute for your own good", "Alr alr, anything to keep the peace with this girl", "Aww I'm very well thx how are you ma girl", "Hehehe that's alright. Wbu you're good and all?"] #902325784159584306
 
 @bot.event
 async def on_ready():
@@ -124,9 +124,9 @@ async def about(ctx):
     async with ctx.typing():
         await asyncio.sleep(7)
     await ctx.send("*On a bright day in the middle of the night*\n*Two dead boys got up to fight*\n*Back to back they faced eachother*\n*Drew their swords and shot eachother*\n*The deaf policeman heard the noise*\n*And saved the lives of the two dead boys*\n*If you don't believe my story is true*\n*Ask the blind man, he saw it too*", delete_after = 20)
-    await asyncio.sleep(3)
+    await asyncio.sleep(5)
     async with ctx.typing():
-        await asyncio.sleep(3)    
+        await asyncio.sleep(4)    
     await ctx.send("*Now you've heard the truth in my fable*\n*Have a laugh and cry on the table*", delete_after = 14)
     await asyncio.sleep(2)
     async with ctx.typing():
@@ -231,6 +231,9 @@ async def on_message(message):
                 await message.channel.send("Hey, you're kinda funny coming into my DMS, what dya want?")
             except:
                 pass
+        if "discord.gg/" in message.content.lower() and message.channel.id != 867605895080574976:
+            await message.delete(delay = 1.0)
+            await message.channel.send(f"{message.author.mention} Heya, invite links aren't allowed here except anywhere except <#867605895080574976>") # remember to add id
         await bot.process_commands(message)
         meanResponse = False
         if message.channel.id in randomResponseChannels:
@@ -361,8 +364,17 @@ async def on_message(message):
                         meanResponse=True
                 if message.author.id == 760345587802964010 and meanResponse == False:
                     await message.channel.send(random.choice(zacResponses))
-                elif message.author.id == 902325784159584306 and meanResponse == False:
-                    await message.channel.send(random.choice(sami_response))
+                elif message.author.id == 902325784159584306 and meanResponse == False: # 
+                    if "thx" in message.content.lower():
+                        await message.channel.send(random.choice(["You're most welcome :blush: anytime", "Np :)) <3"]))
+                    elif "?" in message.content:
+                        await message.channel.send(random.choice(["YES, DEFINETLY :joy:", "Is that even a question Sami?"]))
+                    elif "ily" in message.content:
+                        await message.channel.send(random.choice(["Aww, ily2", "That's sweet :heart_eyes:", ":relieved: ily2"]))
+                    elif "baby" in message.content:
+                        await message.channel.send("She just called me a baby :sob:")
+                    else:
+                        await message.channel.send(random.choice(sami_response))
                 elif meanResponse == False:
                     await message.channel.send(random.choice(mentionResponses))
         if message.channel.id == reddit and message.author.id != 889042207544340511:
