@@ -367,7 +367,7 @@ async def on_message(message):
                     await message.channel.send(random.choice(zacResponses))
                 elif message.author.id == 902325784159584306 and meanResponse == False: # 
                     if "thx" in message.content.lower():
-                        await message.channel.send(random.choice("go away")
+                        await message.channel.send("go away")
                     elif "?" in message.content:
                         await message.channel.send("Stop asking me questions mean one :angry:")
                     elif "ily" in message.content:
