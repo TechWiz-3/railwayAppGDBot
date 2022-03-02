@@ -385,6 +385,23 @@ async def on_message(message):
         if message.content == helperResponseB:
             await message.add_reaction("<:agreentick:875244017833639956>")
 
+@bot.event
+async def on_message_delete(message):
+    print("Message deleted")
+    if message.author.id == 610925167136342019 or message.author.id == 760345587802964010:
+        result = await last_message(message.channel)
+        await message.channel.send("<@610925167136342019> Stop trying to manufacture responses\nhttps://tenor.com/view/funny-smile-zoom-in-eyebrow-raise-gif-15930291")
+        if result != None:
+            await result.delete()
+
+async def last_message(channel):
+    #server = bot.get_guild(867597533458202644) # get Grav Destroyers server
+    #ctx = server.get_channel(channel) # gets channel
+    async for message in channel.history(limit=2):
+        if message.author == bot.user:
+            return message
+        else:
+            return None
 
 
 @bot.event
