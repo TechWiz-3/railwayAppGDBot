@@ -407,7 +407,7 @@ async def last_message(channel):
 async def on_member_join(member):
     server = bot.get_guild(867597533458202644)
     channel = server.get_channel(867600090541981706)
-    await channel.send(f"{member.mention} ^^ Welcome message above or below :)")
+    await channel.send(f"{member.mention} Welcome message below :)")
 
 @bot.event
 async def on_reaction_add(reaction, user):
