@@ -388,11 +388,11 @@ async def on_message(message):
 @bot.event
 async def on_message_delete(message):
     print("Message deleted")
-    if message.author.id == 610925167136342019 or message.author.id == 760345587802964010:
+    if message.author.id == 610925167136342019:
         result = await last_message(message.channel)
         if result != None:
             await result.delete()
-            await message.channel.send("<@610925167136342019> Stop trying to manufacture responses\nhttps://tenor.com/view/funny-smile-zoom-in-eyebrow-raise-gif-15930291")
+            await message.channel.send("Stop trying to manufacture responses\nhttps://tenor.com/view/funny-smile-zoom-in-eyebrow-raise-gif-15930291")
 
 async def last_message(channel):
     #server = bot.get_guild(867597533458202644) # get Grav Destroyers server
@@ -403,6 +403,11 @@ async def last_message(channel):
         else:
             return None
 
+@bot.event
+async def on_member_join(member):
+    server = bot.get_guild(867597533458202644)
+    channel = server.get_channel(867600090541981706)
+    await channel.send(f"{member.mention} ^^ Welcome message above or below :)")
 
 @bot.event
 async def on_reaction_add(reaction, user):
