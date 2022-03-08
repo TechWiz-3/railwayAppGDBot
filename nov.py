@@ -223,7 +223,7 @@ async def on_command_error(ctx,error):
             await asyncio.sleep(3)
         await ctx.send(f'{errorMsg}\n{rowanMsg}')
 
-reddit = 867599777743372299
+#reddit = 867599777743372299
 
 @bot.event
 async def on_message(message):
@@ -379,8 +379,8 @@ async def on_message(message):
                         await message.channel.send(random.choice(sami_response))
                 elif meanResponse == False:
                     await message.channel.send(random.choice(mentionResponses))
-        if message.channel.id == reddit and message.author.id != 889042207544340511:
-            await message.channel.send("<@&870509092974759946> New reddit post :)")
+        # and message.author.id != 889042207544340511:
+            #await message.channel.send("<@&870509092974759946> New reddit post :)")
     elif message.author.id == 889042207544340511:
         if message.content == helperResponseB:
             await message.add_reaction("<:agreentick:875244017833639956>")
