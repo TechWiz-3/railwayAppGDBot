@@ -425,6 +425,8 @@ async def on_reaction_add(reaction, user):
         if user.id == 728541505123516447:
             banthonk = discord.utils.get(bot.emojis, name='banthonk')
             await reaction.message.channel.send(f"<@760345587802964010> BB seems like he wants the banner hammer {banthonk}")
+    elif reaction.emoji == "😋" and user.id == 690068080856268833:
+        await reaction.clear()
     else:
         emoji = reaction.emoji
         #await reaction.message.add_reaction(str(emoji))
@@ -445,6 +447,11 @@ async def on_reaction_add(reaction, user):
                             await reaction.message.channel.send(f'(**phantom helper ping, pretend it\'s here)**\n{uusermention} needs help with {originalMessage.content}')#<@&872010951795306496>
                         else:
                             await reaction.message.channel.send(f'(**phantom helper ping, pretend it\'s here)**\n{uusermention} needs help with {mmessageid}')#<@&872010951795306496>
+
+@bot.event
+async def on_message_edit(before, after):
+    if "😋" in after.content: #and after.author.id == 690068080856268833:
+        await after.delete()
 
 @bot.event    
 async def on_raw_reaction_add(info):
