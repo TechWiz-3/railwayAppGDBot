@@ -450,7 +450,7 @@ async def on_reaction_add(reaction, user):
 
 @bot.event
 async def on_message_edit(before, after):
-    if "😋" in after.content: #and after.author.id == 690068080856268833:
+    if "😋" in after.content and after.author.id == 690068080856268833:
         await after.delete()
 
 @bot.event    
