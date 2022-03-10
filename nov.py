@@ -244,6 +244,8 @@ async def on_message(message):
                 # async with message.channel.typing():
                 #     await asyncio.sleep(3)
                 await message.channel.send(random.choice(randomReminders))
+        if message.author.id == 690068080856268833 and "😋" in message.content:
+            await message.delete()
         if message.author.id == 931377734821773413:
             if message.content == ":flushed:":
                 await message.channel.send("So um how are you today Adrienne?")
@@ -443,8 +445,19 @@ async def on_reaction_add(reaction, user):
                             await reaction.message.channel.send(f'(**phantom helper ping, pretend it\'s here)**\n{uusermention} needs help with {originalMessage.content}')#<@&872010951795306496>
                         else:
                             await reaction.message.channel.send(f'(**phantom helper ping, pretend it\'s here)**\n{uusermention} needs help with {mmessageid}')#<@&872010951795306496>
-    
 
+@bot.event    
+async def on_raw_reaction_add(info):
+    if info.message_id == 914756664555622430:
+        if info.emoji.name == "beluga":
+            await info.member.send(f"You have received the Pets role and now have access to <#874471834370850826>\nEnjoy :grinning:")
+        elif info.emoji.name == "python":
+            hack_emoji = discord.utils.get(bot.emojis, name='pepe_hack')
+            await info.member.send(f"You have received the Coders role and now have access to <#887197847240446004>\nEnjoy {hack_emoji}")
+        elif info.emoji.name == "😋":
+            await info.member.send(f"You have received the Nutrition role and now have access to <#910012458943533057>\nEnjoy :yum: :leafy_green:")
+        elif info.emoji.name == "🙏":
+            await info.member.send(f"You have received the Meditation & Yoga role and now have access to <#929323072815775744>\nEnjoy :person_in_lotus_position:")
                     
             
 bot.add_command(helperping)
