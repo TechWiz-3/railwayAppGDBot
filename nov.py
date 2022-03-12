@@ -1,4 +1,5 @@
 #   background task - role counter and displayer, buttons
+from xmlrpc.client import boolean
 import discord
 import asyncio
 import random
@@ -11,6 +12,7 @@ from dotenv import load_dotenv
 import os
 import mysql.connector
 from discord import AllowedMentions
+from discord.commands import Option
 
 load_dotenv()
 token = os.getenv("token")
@@ -213,6 +215,36 @@ async def random_yt(ctx):
 async def random_yt_vid(ctx):
     """Provides a random yt vid from a list for your enjoyment"""
     await ctx.respond(f"{random.choice(random_yt_vid_msg)}\n{random.choice(random_vid)}")
+
+@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
+async def vote_for_us(ctx):
+    """Provides links for reviewing and voting the server"""
+    await ctx.respond(f"Thankee :star_struck:\n\n**Disboard (most important):** <https://disboard.org/server/867597533458202644>\nTop.GG: <https://top.gg/servers/867597533458202644>\nDiscords: <https://discords.com/servers/867597533458202644>\nDiscord Servers: <https://discordservers.com/server/867597533458202644/>\n\nThis list is also in <#911930469594071100>")
+
+@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
+async def role_all(ctx, role: Option(discord.Role, 'The role you wish to give to everyone', required = True), ignore_bots: Option(bool, 'Whether to add the role to bots or not', required = True), reason: Option(str, 'The reason', required=False)):
+    """Adds a role to every single member in the guild"""
+    if ctx.author.guild_permissions.administrator or ctx.author.guild_permissions.moderate_members:
+        if ignore_bots == False:
+            await ctx.respond("Addition in progress...")
+            role_object = discord.Object(role.id)
+            members_count = 0
+            for member in ctx.guild.members: 
+                await member.add_roles(role_object, reason = reason)
+                members_count += 1
+            await ctx.send(f"**Added {role.mention} to {members_count} members** :relieved:")
+        elif ignore_bots == True:
+            await ctx.respond("Addition in progress...")
+            role_object = discord.Object(role.id)
+            members_count = 0
+            for member in ctx.guild.members: 
+                if member.bot == False:
+                    await member.add_roles(role_object, reason = reason)
+                    members_count += 1
+                await ctx.send(f"**Added {role.mention} to {members_count} users** :relieved:")
+    else:
+        await ctx.respond("Nice try but not gonna work ;) you gotta have permmmmssss for this commands")
+
 
 @bot.event
 async def on_command_error(ctx,error):
