@@ -242,7 +242,7 @@ async def role_all(ctx, role: Option(discord.Role, 'The role you wish to give to
                 if member.bot == False:
                     await member.add_roles(role_object, reason = reason)
                     members_count += 1
-                await ctx.send(f"**Added {role.mention} to {members_count} users** :relieved:")
+            await ctx.send(f"**Added {role.mention} to {members_count} users** :relieved:")
     else:
         await ctx.respond("Nice try but not gonna work ;) you gotta have permmmmssss for this commands")
 
@@ -282,7 +282,7 @@ async def on_message(message):
         if message.author.id == 931377734821773413:
             if message.content == ":flushed:":
                 await message.channel.send("So um how are you today Adrienne?")
-        if "Thank you for bumping our Server! If you haven't already, please go to" in message.content and message.author.id == 735147814878969968:
+        if "Thank you for bumping our Server! If you haven't already, please go to" in message.content and message.author.id == 735147814878969968 or message.author.id == 760345587802964010 and message.content == "Rowan pls bump test":
             bumper = message.mentions
             bumperId = ""
             bumperName = ""
