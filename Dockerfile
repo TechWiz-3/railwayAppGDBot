@@ -11,7 +11,7 @@ RUN apt-get update
 RUN apt-get install -y python3 python3-pip git
 
 # Install bot reqs
-RUN pip3 install -r ./src/requirements.txt
+RUN pip3 install -r requirements.txt
 
 # Start the bot.
 CMD ["python3", "nov.py"]
