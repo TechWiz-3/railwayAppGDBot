@@ -279,6 +279,8 @@ async def on_message(message):
                 await message.channel.send(random.choice(randomReminders))
         if message.author.id == 690068080856268833 and "😋" in message.content:
             await message.delete()
+        if message.author.id == 690068080856268833 and "||" in message.content:
+            await message.delete()
         if message.author.id == 931377734821773413:
             if message.content == ":flushed:":
                 await message.channel.send("So um how are you today Adrienne?")
@@ -458,8 +460,8 @@ async def on_reaction_add(reaction, user):
         if user.id == 728541505123516447:
             banthonk = discord.utils.get(bot.emojis, name='banthonk')
             await reaction.message.channel.send(f"<@760345587802964010> BB seems like he wants the banner hammer {banthonk}")
-    elif reaction.emoji == "😋" and user.id == 690068080856268833:
-        await reaction.clear()
+    elif reaction.emoji == "😋" and user.id == 690068080856268833 and reaction.message.channel.id != 914645751752175627:
+        await reaction.remove()
     else:
         emoji = reaction.emoji
         #await reaction.message.add_reaction(str(emoji))
@@ -498,7 +500,21 @@ async def on_raw_reaction_add(info):
             await info.member.send(f"You have received the Nutrition role and now have access to <#910012458943533057>\nEnjoy :yum: :leafy_green:")
         elif info.emoji.name == "🙏":
             await info.member.send(f"You have received the Meditation & Yoga role and now have access to <#929323072815775744>\nEnjoy :person_in_lotus_position:")
-                    
+
+@bot.event
+async def on_member_join(member):
+    if member.guild.id == 867597533458202644:
+        try:
+            server = bot.get_guild(867597533458202644) # get Grav Destroyers server
+            welcome_channel = server.get_channel(867600090541981706) # gets channel
+        except:
+            print("Getting either the server or welcome channel for a welcome message didn't work :(")
+        coolblob = discord.utils.get(bot.emojis, name='coolblob')
+        wumpus = discord.utils.get(bot.emojis, name='wumpusye')
+        koala = discord.utils.get(bot.emojis, name='koalawave')
+        happytalk = discord.utils.get(bot.emojis, name='happytalk')
+        welcome_team = server.get_role(876990087429226536)
+        await welcome_channel.send(f"Welcome {member.mention} {wumpus} {koala}\n\n{welcome_team.mention} make our new Gravity Destroyer feel welcome {coolblob}\n\nLet's talk in <#867597533458202647> {happytalk}", allowed_mentions = discord.AllowedMentions.all())
             
 bot.add_command(helperping)
 bot.add_command(compliment)
