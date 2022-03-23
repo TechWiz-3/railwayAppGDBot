@@ -1,6 +1,5 @@
 #   background task - role counter and displayer, buttons
 # railway repush
-from xmlrpc.client import boolean
 import discord
 import asyncio
 import random
@@ -139,10 +138,10 @@ async def about(ctx):
     await ctx.send("HAHAHA, did you really think I'd give you an answer?!!", delete_after = 12)
     async with ctx.typing():
         await asyncio.sleep(5)
-    await ctx.send("WELL, ||you'd be right|| just after a little wild ride ;) ;)", delete_after = 10)
+    await ctx.send("Well yeah but not before messing with you a bit :smile:", delete_after = 9)
     async with ctx.typing():
         await asyncio.sleep(5)
-    await ctx.send("> I'm the Gravity Destroyers Bot :)\n> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
+    await ctx.send("> I'm the Gravity Destroyers Bot :)\n\nMa name's Rowan> I help you guys do your stuff lol\n> I'm usually friendly and sometimes impatient (crazy humans :rolling_eyes:)\n> I'm not a chat bot, I just have clever coding\n> As you would now know, I love pranks <:yeahboi:880034464447754280>")
 
                         
 @bot.command()
@@ -201,9 +200,9 @@ async def random_words(ctx):
         finalWords = finalWords + word + " "
     await ctx.respond(f"{finalWords.capitalize()}")
 
-@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
-async def landscape_picture(ctx):
-    pass
+# @bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
+# async def landscape_picture(ctx):
+#     pass
 
 
 #create remindme command
@@ -272,7 +271,7 @@ async def on_message(message):
         await bot.process_commands(message)
         meanResponse = False
         if message.channel.id in randomResponseChannels:
-            chanceTriggerFunnyTimer = random.randint(1,100)
+            chanceTriggerFunnyTimer = random.randint(1,300)
             if chanceTriggerFunnyTimer == 20:
                 # async with message.channel.typing():
                 #     await asyncio.sleep(3)
@@ -401,7 +400,7 @@ async def on_message(message):
                     if meanWord in message.content.lower():
                         await message.reply("NO NO NO and NO\nALSO.... NO")
                         meanResponse=True
-                if message.author.id == 760345587802964010 and meanResponse == False:
+                if message.author.id == 760345587802964010 and meanResponse == False and message.channel.id != 867600399879372820:
                     await message.channel.send(random.choice(zacResponses))
                 elif message.author.id == 902325784159584306 and meanResponse == False: # 
                     if "thx" in message.content.lower():
@@ -461,7 +460,7 @@ async def on_reaction_add(reaction, user):
             banthonk = discord.utils.get(bot.emojis, name='banthonk')
             await reaction.message.channel.send(f"<@760345587802964010> BB seems like he wants the banner hammer {banthonk}")
     elif reaction.emoji == "😋" and user.id == 690068080856268833 and reaction.message.channel.id != 914645751752175627:
-        await reaction.remove()
+        await reaction.remove(user)
     else:
         emoji = reaction.emoji
         #await reaction.message.add_reaction(str(emoji))
