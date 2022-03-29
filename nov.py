@@ -1,5 +1,5 @@
 #   background task - role counter and displayer, buttons
-# railway repush
+#   birthday system
 import discord
 import asyncio
 import random
@@ -12,7 +12,12 @@ from dotenv import load_dotenv
 import os
 import mysql.connector
 from discord import AllowedMentions
+from discord.commands import Option, SlashCommandGroup, slash_command
+from discord.commands import slash_command, SlashCommandGroup
 from discord.commands import Option
+from discord.ext import commands
+
+PROD_GUILD = 867597533458202644
 
 load_dotenv()
 token = os.getenv("token")
@@ -91,6 +96,13 @@ async def on_ready():
     print('Bot is ready!')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
 
+
+"""group section"""
+
+
+
+
+""""end group section"""
 @commands.command()
 async def compliment(ctx, user):
     x = requests.get('https://complimentr.com/api')
@@ -514,8 +526,9 @@ async def on_member_join(member):
         happytalk = discord.utils.get(bot.emojis, name='happytalk')
         welcome_team = server.get_role(876990087429226536)
         await welcome_channel.send(f"Welcome {member.mention} {wumpus} {koala}\n\n{welcome_team.mention} make our new Gravity Destroyer feel welcome {coolblob}\n\nLet's talk in <#867597533458202647> {happytalk}", allowed_mentions = discord.AllowedMentions.all())
-            
+
 bot.add_command(helperping)
 bot.add_command(compliment)
 bot.add_command(about)
+bot.load_extension('cogs.bump')
 bot.run(token)
