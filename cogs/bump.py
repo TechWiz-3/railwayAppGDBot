@@ -8,6 +8,7 @@ from discord.utils import get
 import os
 import mysql.connector
 from dotenv import load_dotenv
+from random import choice
 PROD_GUILD = 867597533458202644
 
 load_dotenv()
@@ -51,7 +52,7 @@ class Bump(commands.Cog):
                     print("for level command, for loop for bump entry did not run")
             if entry_exists == True:
                 # await ctx.respond(f"You have `{points}` bumps") # add funny response here
-                await ctx.respond(f"You want me to show you how many bump points you got? no way lmao")s
+                await ctx.respond(choice([f"You want me to show you how many bump points you got? no way lmao", "ZERO POINTS", "Error :weary: user not found in database", "You have to bump before checking level... lmao human"]))
             else:
                 await ctx.respond("Sorry, can't find your entry")
             
