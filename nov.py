@@ -368,10 +368,11 @@ async def on_message(message):
                         allowed_mentions = AllowedMentions.none()
                             )
                 else:
-                    await message.channel.send(
-                        f"{random.choice(bumper_message)}\nYou now have {newPoints} points\n`.bump_rewards` `/bumping_rewards`",
-                        allowed_mentions = AllowedMentions.none()
-                            )
+                    # await message.channel.send(
+                    #     f"{random.choice(bumper_message)}\nYou now have {newPoints} points\n`.bump_rewards` `/bumping_rewards`",
+                    #     allowed_mentions = AllowedMentions.none()
+                    #         )
+                    await message.channel.send("SIKE, DID YOU SERIOUSLY THINK YOU'RE GETTING BUMP POINTS??? MWAHAHAHAHA")
 
         # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
         #     await message.channel.send(
