@@ -334,37 +334,43 @@ async def on_message(message):
                 elif newPoints == 15:
                     await bumper_object.add_roles(discord.Object(929992275302432808))
                     await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992275302432808> role :)",
+                        # f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992275302432808> role :)",
+                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 30:
                     await bumper_object.add_roles(discord.Object(929992208826892298))
                     await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992208826892298> role :)",
+                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992208826892298> role :)",
+                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 50: #50
                     await bumper_object.add_roles(discord.Object(929992243270537256))
                     await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992243270537256> role :)",
+                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992243270537256> role :)",
+                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 75:
                     await bumper_object.add_roles(discord.Object(929992377706369034))
                     await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992377706369034> role :)",
+                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992377706369034> role :)",
+                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 105:
                     await bumper_object.add_roles(discord.Object(929992347876479006))
                     await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992347876479006> role :)",
+                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992347876479006> role :)",
+                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 140:
                     await bumper_object.add_roles(discord.Object(929992418915405875))
                     await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992418915405875> role :)",
+                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992418915405875> role :)",
+                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
                         allowed_mentions = AllowedMentions.none()
                             )
                 else:

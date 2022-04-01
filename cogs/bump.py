@@ -31,10 +31,12 @@ class Bump(commands.Cog):
 
     @bump.command(guild_ids=[PROD_GUILD])
     async def leaderboard(self, ctx):
+        """Shows bumping leaderboard... maybe"""
         await ctx.respond("Right now, local genius Zac the Wise can't figure out a way to sort database entries into a proper leaderboard so for now, the leaderboard is not available")
 
     @bump.command()
     async def level(self, ctx):
+        """Shows you your bump points"""
         entry_exists = False
         points = 0
         try:
@@ -48,7 +50,8 @@ class Bump(commands.Cog):
                 else:
                     print("for level command, for loop for bump entry did not run")
             if entry_exists == True:
-                await ctx.respond(f"You have `{points}` bumps") # add funny response here
+                # await ctx.respond(f"You have `{points}` bumps") # add funny response here
+                await ctx.respond(f"You want me to show you how many bump points you got? no way lmao")s
             else:
                 await ctx.respond("Sorry, can't find your entry")
             
