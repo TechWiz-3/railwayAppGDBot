@@ -97,6 +97,12 @@ async def on_ready():
     print('Bot is ready!')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
 
+    server = bot.get_guild(867597533458202644) # get Grav Destroyers server
+    ctx = server.get_channel(868447164999815229) # gets channel
+    await ctx.send(
+                    f"<@234004050201280512>\nConfirming you have in fact earned the <@&929992377706369034> role :)",
+                        allowed_mentions = AllowedMentions.none()
+                            )
 
 """group section"""
 
