@@ -1,9 +1,11 @@
 #   background task - role counter and displayer, buttons
 #   birthday system
+from typing import final
 import discord
 import asyncio
 import random
 import aiohttp
+import time
 import json
 from discord.utils import get
 import requests
@@ -97,12 +99,8 @@ async def on_ready():
     print('Bot is ready!')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gravity Destroyers"))
 
-    server = bot.get_guild(867597533458202644) # get Grav Destroyers server
-    ctx = server.get_channel(868447164999815229) # gets channel
-    await ctx.send(
-                    f"<@234004050201280512>\nConfirming you have in fact earned the <@&929992377706369034> role :)",
-                        allowed_mentions = AllowedMentions.none()
-                            )
+    #server = bot.get_guild(867597533458202644) # get Grav Destroyers server
+    #ctx = server.get_channel(868447164999815229) # gets channel
 
 """group section"""
 
@@ -173,20 +171,8 @@ async def motivation(ctx):
         await asyncio.sleep(3)
     await ctx.send(random.choice(rowanMotivation))
 
-@bot.command()
-async def bump_rewards(ctx):
-    await ctx.send(
-        "<@&929992167949209601> 5 bumps\n<@&929992275302432808> 15 bumps\n<@&929992208826892298> 30 bumps\n<@&929992243270537256> 50 bumps\n<@&929992377706369034> 75 bumps\n<@&929992347876479006> 105 bumps\n<@&929992418915405875> 140 bumps",
-        allowed_mentions = AllowedMentions.none()
-            )
 
-@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
-async def bumping_rewards(ctx):
-    """Shows the role rewards for each number of bumps"""
-    # await ctx.respond(
-    #     "<@&929992167949209601> 5 bumps\n<@&929992275302432808> 15 bumps\n<@&929992208826892298> 30 bumps\n<@&929992243270537256> 50 bumps\n<@&929992377706369034> 75 bumps\n<@&929992347876479006> 105 bumps\n<@&929992418915405875> 140 bumps"
-    #         )
-    await ctx.respond("NO REWARDS FOR THE NAUGHTY")
+
 @bot.command()
 @commands.cooldown(1,60,commands.BucketType.user)
 async def motivation_quote(ctx):
@@ -342,51 +328,44 @@ async def on_message(message):
                 elif newPoints == 15:
                     await bumper_object.add_roles(discord.Object(929992275302432808))
                     await message.channel.send(
-                        # f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992275302432808> role :)",
-                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992275302432808> role :)",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 30:
                     await bumper_object.add_roles(discord.Object(929992208826892298))
                     await message.channel.send(
-                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992208826892298> role :)",
-                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992208826892298> role :)",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 50: #50
                     await bumper_object.add_roles(discord.Object(929992243270537256))
                     await message.channel.send(
-                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992243270537256> role :)",
-                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992243270537256> role :)",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 75:
                     await bumper_object.add_roles(discord.Object(929992377706369034))
                     await message.channel.send(
-                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992377706369034> role :)",
-                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992377706369034> role :)",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 105:
                     await bumper_object.add_roles(discord.Object(929992347876479006))
                     await message.channel.send(
-                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992347876479006> role :)",
-                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992347876479006> role :)",
                         allowed_mentions = AllowedMentions.none()
                             )
                 elif newPoints == 140:
                     await bumper_object.add_roles(discord.Object(929992418915405875))
                     await message.channel.send(
-                        #f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992418915405875> role :)",
-                        f"No u. NO BUMP REWARDS HEHAAHAHAH",
+                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992418915405875> role :)",
                         allowed_mentions = AllowedMentions.none()
                             )
                 else:
-                    # await message.channel.send(
-                    #     f"{random.choice(bumper_message)}\nYou now have {newPoints} points\n`.bump_rewards` `/bumping_rewards`",
-                    #     allowed_mentions = AllowedMentions.none()
-                    #         )
-                    await message.channel.send("SIKE, DID YOU SERIOUSLY THINK YOU'RE GETTING BUMP POINTS??? MWAHAHAHAHA")
+                    await message.channel.send(
+                        f"{random.choice(bumper_message)}\nYou now have {newPoints} points\n`.bump_rewards` `/bumping_rewards`",
+                        allowed_mentions = AllowedMentions.none()
+                            )
 
         # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
         #     await message.channel.send(
@@ -407,7 +386,7 @@ async def on_message(message):
         if "nice" in message.content.lower():
             chance = random.randint(1, 5)
             if chance == 1:
-                emoji = discord.utils.get(bot.emojis, name='GESvibing')
+                emoji = get(bot.emojis, name='GESvibing')
                 await message.channel.send(str(emoji))
             if chance == 2:
                 await message.channel.send("<:happy:889335490908676146>")
@@ -541,6 +520,55 @@ async def on_member_join(member):
         happytalk = discord.utils.get(bot.emojis, name='happytalk')
         welcome_team = server.get_role(876990087429226536)
         await welcome_channel.send(f"Welcome {member.mention} {wumpus} {koala}\n\n{welcome_team.mention} make our new Gravity Destroyer feel welcome {coolblob}\n\nLet's talk in <#867597533458202647> {happytalk}", allowed_mentions = discord.AllowedMentions.all())
+
+
+@bot.slash_command(guild_ids=[PROD_GUILD])
+async def bump_leaderboard(ctx):
+    """Shows bumping leaderboard... maybe"""
+    mydb.commit()
+    lb_list = []
+    final_msg = ""
+    second_page = ""
+    full = {}
+    get_lb = "SELECT userId, points FROM bumping"
+    mycursor.execute(get_lb)
+    await ctx.respond("**Bump Leaderboard**\n➡️ and ⬅️ to move forward and back")
+    for entry in mycursor:
+        user_id, points = entry
+        lb_list.append(int(points))
+        for point in lb_list:
+            full[user_id] = point
+            #final_msg += f"{member}\t{point}" 
+    sort_orders = sorted(full.items(), key=lambda x: x[1], reverse=True)
+    counter = 0
+    for i in sort_orders:
+        counter += 1
+        if counter <=10:
+            final_msg += f"`{i[1]}`\t<@{i[0]}>\n"
+        else:
+            second_page += f"<@{i[0]}>\t`{i[1]}`\n"            
+    message = await ctx.send(f"{final_msg}", allowed_mentions = AllowedMentions.none())
+    
+    def check(reaction, user):
+            return user == ctx.author and str(reaction.emoji) == '➡️'
+    def check2(reaction, user):
+            return user == ctx.author and str(reaction.emoji) == '⬅️'
+    await message.add_reaction("⬅️")
+    await message.add_reaction("➡️")
+    t_end = time.time() + 60 * 15
+    while time.time() < t_end:
+        try:
+            reaction, user = await bot.wait_for('reaction_add', check=check, timeout=60.0)
+        except asyncio.TimeoutError:
+            await ctx.channel.send('Board timed out', delete_after = 5.0)
+        else:
+            await message.edit(content = f"{second_page}")
+        try:
+            reaction, user = await bot.wait_for('reaction_add', check=check2, timeout = 60.0)
+        except asyncio.TimeoutError:
+            await ctx.channel.send('Board timed out', delete_after = 5.0)
+        else:
+            await message.edit(content = f"{final_msg}", allowed_mentions = AllowedMentions.none())
 
 bot.add_command(helperping)
 bot.add_command(compliment)

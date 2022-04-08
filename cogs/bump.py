@@ -9,7 +9,10 @@ import os
 import mysql.connector
 from dotenv import load_dotenv
 from random import choice
+from discord import AllowedMentions
+from numpy import full
 PROD_GUILD = 867597533458202644
+import asyncio
 
 load_dotenv()
 token = os.getenv("token")
@@ -24,16 +27,49 @@ mydb = mysql.connector.connect(
 )
 mycursor = mydb.cursor()
 
+print("hi")
+
 class Bump(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     bump = SlashCommandGroup("bumper", "Bumping commands", guild_ids = [PROD_GUILD])
 
-    @bump.command(guild_ids=[PROD_GUILD])
-    async def leaderboard(self, ctx):
-        """Shows bumping leaderboard... maybe"""
-        await ctx.respond("Right now, local genius Zac the Wise can't figure out a way to sort database entries into a proper leaderboard so for now, the leaderboard is not available")
+    # @bump.command(guild_ids=[PROD_GUILD])
+    # async def leaderboard(self, ctx):
+    #     """Shows bumping leaderboard... maybe"""
+    #     mydb.commit()
+    #     lb_list = []
+    #     final_msg = ""
+    #     second_page = ""
+    #     full = {}
+    #     get_lb = "SELECT userId, points FROM bumping"
+    #     mycursor.execute(get_lb)
+    #     for entry in mycursor:
+    #         user_id, points = entry
+    #         lb_list.append(int(points))
+    #         for point in lb_list:
+    #             full[user_id] = point
+    #             #final_msg += f"{member}\t{point}" 
+    #     sort_orders = sorted(full.items(), key=lambda x: x[1], reverse=True)
+    #     counter = 0
+    #     for i in sort_orders:
+    #         counter += 1
+    #         if counter <=10:
+    #             final_msg += f"`{i[1]}`\t<@{i[0]}>\n"
+    #         else:
+    #             second_page += f"<@{i[0]}>\t`{i[1]}`\n"            
+    #     await ctx.respond(f"{final_msg}", allowed_mentions = AllowedMentions.none())
+        
+    #     def check(self, reaction, user):
+    #             return user == ctx.author and str(reaction.emoji) == '➡️'
+    #     try:
+    #         reaction, user = await self.bot.wait_for(event = 'reaction_add', check=check, timeout=60.0)
+    #     except asyncio.TimeoutError:
+    #         await ctx.channel.send('👎')
+    #     else:
+    #         await ctx.channel.send('👍')
+
 
     @bump.command()
     async def level(self, ctx):
@@ -60,6 +96,19 @@ class Bump(commands.Cog):
             print(error)
             await ctx.respond(f"Sorry error occured :(\n{error}")
 
+    @commands.command()
+    async def bump_rewards(self, ctx):
+        await ctx.send(
+            "<@&929992167949209601> 5 bumps\n<@&929992275302432808> 15 bumps\n<@&929992208826892298> 30 bumps\n<@&929992243270537256> 50 bumps\n<@&929992377706369034> 75 bumps\n<@&929992347876479006> 105 bumps\n<@&929992418915405875> 140 bumps",
+            allowed_mentions = AllowedMentions.none()
+                )
+
+    @bump.command()
+    async def rewards(self, ctx):
+        """Shows the role rewards for each number of bumps"""
+        await ctx.respond(
+            "<@&929992167949209601> 5 bumps\n<@&929992275302432808> 15 bumps\n<@&929992208826892298> 30 bumps\n<@&929992243270537256> 50 bumps\n<@&929992377706369034> 75 bumps\n<@&929992347876479006> 105 bumps\n<@&929992418915405875> 140 bumps"
+                )
 
 def setup(bot):
     bot.add_cog(Bump(Bot))
