@@ -10,7 +10,9 @@ The bot has a few slash and regular commands listed here:
 `.motivation_quote`  
 `/motivatonal_quote`  
 `.bump_rewards`  
-`/bumping_rewards`  
+`/bumper rewards` 
+`/bumper level`
+`/bump_leaderboard`
 `/random_words`  
 
 Proper documentation coming soon... hopefully
