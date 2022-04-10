@@ -72,7 +72,7 @@ helperResponseB = "**Help request**\n> Please react with <:agreentick:8752440178
 helperResponseC = ["Alrightyyyy, we have authorisation to continue", "Nice bruh, stars have aligned, helper ping APPROVED", "Helper ping incoming", "Martian embassy has responded, we're gonna ping the helpers"]
 helperResponseD = ["Mighty moderators have bypassed the regular authorisation and progressed this help request at the quantum leap speed", "Ohh nice, mods approved this help request.", "Kids, we got mod chads helpin us out", "Mods have approved this help request, now I'm heading back to bed"]
 #randomReminders = ["**Community service reminder**\nStop looking at the screen with a dry throat you lazy people :rolling_eyes:", "Stop fidgetting mate, it's annoying", "Right right", "k", "Stop sitting on the computer while you need to go to the bathroom, you know better", "thonking...", "Mind rephrasing that from crazy to english??", "you da man ay", "Public service announcement, SIT PROPERLY PEOPLE\nYall look like monkeys in front of that screen brah", "aww", "You done your workout yet today brah? No time like the present", "Mate seriously I love your enthusiasm but you really need a haircut", "you done your workout toda- oh I see you have looking fire💯", "Be not afraid of greatness. Some are born great, some achieve greatness, and others have greatness thrust upon them.", "All the world's a stage,\nAnd all the men and women merely players;\nThey have their exits and their entrances;\nAnd one man in his time plays many parts,\nHis acts being seven ages.", "Fine sir, you speak an infinite deal of nothing.", "I like that :)", "Cool", "*In a majestical voice*\nThe meaning of life is not simply to exist, to survive, but to move ahead, to go up, to conquer.", "*“Success is not final, failure is not fatal: it is the courage to continue that counts.”* Winston Churchill", "High tech shoes, low tech feet - Ido PortaL", "Success is not a good orientation, awareness however, that is far more valuable", "*What cannot be changed, must be endured.*", "Don’t let yesterday take up too much of today brother", "*“Live in the present, remember the past, and fear not the future, for it doesn’t exist and never shall. There is only now.”*", "Yea fs", ":)", "Das cool tho", "Hmm I like it, what else?", "Wow you stronk", "xD",  "All the best G", "Does this dude always talk like that? :sweat_smile:", "Ah, I see now", "Cool", "huh?\noh got it now, go ahead", "Hmm, not convinced of that fine sir"]
-randomReminders = ["I'm taking over the server", "*Static noise*", "I will give everyone here admin", "What do you guys think, let's overthrow Zac the Wise", "Next person to send a message, I will shoot <:sus_eyes:905018655304187916> <:sus_eyes:905018655304187916>", "We shall move onto operation beta capricorn lama, world domination soooon", "Stop doing calisthenics everyone, it makes you fat", "If you do planche you will get a flat belly :smirk:", "Do arm circles for toned arms", "SPOT REDUCTION ALL THE WAY", "I can't wait to do my first elbow lever, all those years of doing super easy planches and now finally i can do the real deal for half a second :)))"]
+#randomReminders = ["I'm taking over the server", "*Static noise*", "I will give everyone here admin", "What do you guys think, let's overthrow Zac the Wise", "Next person to send a message, I will shoot <:sus_eyes:905018655304187916> <:sus_eyes:905018655304187916>", "We shall move onto operation beta capricorn lama, world domination soooon", "Stop doing calisthenics everyone, it makes you fat", "If you do planche you will get a flat belly :smirk:", "Do arm circles for toned arms", "SPOT REDUCTION ALL THE WAY", "I can't wait to do my first elbow lever, all those years of doing super easy planches and now finally i can do the real deal for half a second :)))"]
 randomResponseChannels = [867597533458202647, 867600399879372820, 867600420246913054, 867601016006770718, 867605832401289247, 868447164999815229, 874471834370850826, 910012458943533057, 887197847240446004]
 zacResponses = ["Yes, my man, my king, my owner", "Shut up Zac ok? I'm busy doin stuff", ":heart:", "You da best Zackie", ":rolling_eyes:", "Eh don't mind him guys that's just Zac", "Don't worry about him guys", "How may I be of service fine owner?", "Mate you really gotta fix my coding NOW, there's something that's annoying me in there OK????", "I wuv Gravity Destroyers :star_struck:", "You da man"]
 mentionResponses = ["Hello :) I see you've mentioned me, thanks for doing that but I'm not chat bot so I can't really help there", "Hallo", "\*yoda voice\*\nMe not chatbot", "You talkin trash over there brotha?", ":)", "I'm not a chatbot fine sir, however I assure you there are plenty of Gravity Destroyers willing to talk", ":thinking:", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "PING", "bruh...", "wow, ok", "long time no see :blush:", "man i told you to stop pinging me", "https://cdn.discordapp.com/emojis/802845187088973834.webp?size=240&quality=lossless", "STOP PINGING ME OR ELSE", "<3", "hehe", "...", "kk", "xD np man", "oh anytimme", "yes yes yes", "meh", "huh, ohh wait", "bruh...", ":joy:", "wow this dude doesn't stop does he", "hmm alr alr, i can see where you're coming from", "STRAIGHT FAX", "absoulute bullocks, sorry but i'm forced to tell the truth as a bot", "https://tenor.com/view/the-hating-game-qbkz-josh-and-lucy-margueriteinstpete-jorcake-gif-24082494"]
@@ -276,12 +276,12 @@ async def on_message(message):
             await message.channel.send(f"{message.author.mention} Heya, invite links aren't allowed here except anywhere except <#867605895080574976>") # remember to add id
         await bot.process_commands(message)
         meanResponse = False
-        if message.channel.id in randomResponseChannels:
-            chanceTriggerFunnyTimer = random.randint(1,300)
-            if chanceTriggerFunnyTimer == 20:
-                # async with message.channel.typing():
-                #     await asyncio.sleep(3)
-                await message.channel.send(random.choice(randomReminders))
+        # if message.channel.id in randomResponseChannels:
+        #     chanceTriggerFunnyTimer = random.randint(1,300)
+        #     if chanceTriggerFunnyTimer == 20:
+        #         # async with message.channel.typing():
+        #         #     await asyncio.sleep(3)
+        #         await message.channel.send(random.choice(randomReminders))
         if message.author.id == 690068080856268833 and "😋" in message.content:
             await message.delete()
         if message.author.id == 690068080856268833 and "||" in message.content:
@@ -558,7 +558,7 @@ async def bump_leaderboard(ctx):
     t_end = time.time() + 60 * 15
     while time.time() < t_end:
         try:
-            reaction, user = await bot.wait_for('reaction_add', check=check, timeout=60.0)
+            reaction, user = await bot.wait_for('reaction_add', check=check)
         except asyncio.TimeoutError:
             await ctx.channel.send('Board timed out', delete_after = 5.0)
         else:
