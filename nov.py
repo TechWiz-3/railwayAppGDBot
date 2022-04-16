@@ -282,6 +282,13 @@ async def on_message(message):
         #         # async with message.channel.typing():
         #         #     await asyncio.sleep(3)
         #         await message.channel.send(random.choice(randomReminders))
+        if message.author.id == 475130373630853140:
+            if "https://tenor.com/view/uwu-smug-anime-stare-gif-17603924" in message.content.lower():
+                await message.channel.send("Stop abusing uwu gifs oxygen <:pepepolice:905035257970053120> <:pepepolice:905035257970053120>")
+                await message.delete()
+            elif "uwu" in message.content.lower() and "gif" in message.content.lower():
+                await message.channel.send("I knew you would try it again. Oxygen, man, please I can't take it anymore. NO UWU GIFS")
+
         if message.author.id == 690068080856268833 and "😋" in message.content:
             await message.delete()
         if message.author.id == 690068080856268833 and "||" in message.content:
