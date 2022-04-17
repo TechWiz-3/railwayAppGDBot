@@ -1,6 +1,6 @@
 # railwayAppGDBot
 
-[![wakatime](https://wakatime.com/badge/user/ca36faea-acc3-45d7-acc1-fb14861b9144/project/2c8b14c4-cc6e-49ac-abdf-426f49c7ac91.svg)](https://wakatime.com/badge/user/ca36faea-acc3-45d7-acc1-fb14861b9144/project/2c8b14c4-cc6e-49ac-abdf-426f49c7ac91?style=for-the-badge)  
+[![wakatime](https://wakatime.com/badge/user/ca36faea-acc3-45d7-acc1-fb14861b9144/project/2c8b14c4-cc6e-49ac-abdf-426f49c7ac91.svg?style=for-the-badge)](https://wakatime.com/badge/user/ca36faea-acc3-45d7-acc1-fb14861b9144/project/2c8b14c4-cc6e-49ac-abdf-426f49c7ac91)  
 
 A bot I created for my server Gravity Destroyers SW and hosted on Railway App, the bots code has currently not been cleaned up.
 
