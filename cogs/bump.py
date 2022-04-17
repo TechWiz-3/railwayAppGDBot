@@ -74,6 +74,7 @@ class Bump(commands.Cog):
     @bump.command()
     async def level(self, ctx):
         """Shows you your bump points"""
+        mydb.commit()
         entry_exists = False
         points = 0
         try:
