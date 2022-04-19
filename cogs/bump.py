@@ -1,8 +1,6 @@
 import discord
 from discord import Bot
-from discord import Emoji
 from discord.commands import slash_command, SlashCommandGroup
-from discord.commands import Option
 from discord.ext import commands
 from discord.utils import get
 import os
@@ -11,9 +9,7 @@ from dotenv import load_dotenv
 from random import choice
 from discord import AllowedMentions
 from numpy import full
-from discord import errors
 PROD_GUILD = 867597533458202644
-import asyncio
 
 load_dotenv()
 token = os.getenv("token")
