@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 from random import choice
 from discord import AllowedMentions
 from numpy import full
+from discord import errors
 PROD_GUILD = 867597533458202644
 import asyncio
 
@@ -18,16 +19,19 @@ load_dotenv()
 token = os.getenv("token")
 password = os.getenv("password")
 
-mydb = mysql.connector.connect(
-  host="containers-us-west-23.railway.app",
-  user="root",
-  password=password, # sus person, why are you reading this line??
-  database="railway",
-  port="6499"
-)
-mycursor = mydb.cursor()
+def connect_db():
+    global mydb
+    mydb = mysql.connector.connect(
+        host="containers-us-west-23.railway.app",
+        user="root",
+        password=password, # sus person, why are you reading this line??
+        database="railway",
+        port="6499"
+    )
+    global mycursor
+    mycursor = mydb.cursor()
 
-print("hi")
+connect_db()
 
 class Bump(commands.Cog):
     def __init__(self, bot):
@@ -35,67 +39,56 @@ class Bump(commands.Cog):
 
     bump = SlashCommandGroup("bumper", "Bumping commands", guild_ids = [PROD_GUILD])
 
-    # @bump.command(guild_ids=[PROD_GUILD])
-    # async def leaderboard(self, ctx):
-    #     """Shows bumping leaderboard... maybe"""
-    #     mydb.commit()
-    #     lb_list = []
-    #     final_msg = ""
-    #     second_page = ""
-    #     full = {}
-    #     get_lb = "SELECT userId, points FROM bumping"
-    #     mycursor.execute(get_lb)
-    #     for entry in mycursor:
-    #         user_id, points = entry
-    #         lb_list.append(int(points))
-    #         for point in lb_list:
-    #             full[user_id] = point
-    #             #final_msg += f"{member}\t{point}" 
-    #     sort_orders = sorted(full.items(), key=lambda x: x[1], reverse=True)
-    #     counter = 0
-    #     for i in sort_orders:
-    #         counter += 1
-    #         if counter <=10:
-    #             final_msg += f"`{i[1]}`\t<@{i[0]}>\n"
-    #         else:
-    #             second_page += f"<@{i[0]}>\t`{i[1]}`\n"            
-    #     await ctx.respond(f"{final_msg}", allowed_mentions = AllowedMentions.none())
-        
-    #     def check(self, reaction, user):
-    #             return user == ctx.author and str(reaction.emoji) == '➡️'
-    #     try:
-    #         reaction, user = await self.bot.wait_for(event = 'reaction_add', check=check, timeout=60.0)
-    #     except asyncio.TimeoutError:
-    #         await ctx.channel.send('👎')
-    #     else:
-    #         await ctx.channel.send('👍')
-
-
     @bump.command()
     async def level(self, ctx):
         """Shows you your bump points"""
-        mydb.commit()
-        entry_exists = False
-        points = 0
         try:
-            findIfEntryExists = "SELECT points FROM bumping WHERE userId = %s"
-            values = (str(ctx.author.id),)
-            mycursor.execute(findIfEntryExists, values)
-            for entry in mycursor:
-                entry_exists = True
+            mydb.commit()
+            entry_exists = False
+            points = 0
+            try:
+                findIfEntryExists = "SELECT points FROM bumping WHERE userId = %s"
+                values = (str(ctx.author.id),)
+                mycursor.execute(findIfEntryExists, values)
+                for entry in mycursor:
+                    entry_exists = True
+                    if entry_exists == True:
+                        points, = entry
+                    else:
+                        print("for level command, for loop for bump entry did not run")
                 if entry_exists == True:
-                    points, = entry
+                    await ctx.respond(f"You have `{points}` bumps") # add funny response here
+                    #await ctx.respond(choice([f"You want me to show you how many bump points you got? no way lmao", "ZERO POINTS", "Error :weary: user not found in database", "You have to bump before checking level... lmao human"]))
                 else:
-                    print("for level command, for loop for bump entry did not run")
-            if entry_exists == True:
-                await ctx.respond(f"You have `{points}` bumps") # add funny response here
-                #await ctx.respond(choice([f"You want me to show you how many bump points you got? no way lmao", "ZERO POINTS", "Error :weary: user not found in database", "You have to bump before checking level... lmao human"]))
+                    await ctx.respond("Sorry, can't find your entry")
+                
+            except Exception as error: 
+                print(error)
+                await ctx.respond(f"Sorry error occured :(\n{error}")
+        except mysql.connector.Error as error:
+            await ctx.send("DB connection lost, reconnection attempting")
+            try:
+                connect_db()
+            except:
+                await ctx.respond("Reconnection attempt failed ;(")
             else:
-                await ctx.respond("Sorry, can't find your entry")
-            
-        except Exception as error: 
-            print(error)
-            await ctx.respond(f"Sorry error occured :(\n{error}")
+                mydb.commit()
+                entry_exists = False
+                points = 0
+                findIfEntryExists = "SELECT points FROM bumping WHERE userId = %s"
+                values = (str(ctx.author.id),)
+                mycursor.execute(findIfEntryExists, values)
+                for entry in mycursor:
+                    entry_exists = True
+                    if entry_exists == True:
+                        points, = entry
+                    else:
+                        print("for level command, for loop for bump entry did not run")
+                if entry_exists == True:
+                    await ctx.respond(f"You have `{points}` bumps") # add funny response here
+                    #await ctx.respond(choice([f"You want me to show you how many bump points you got? no way lmao", "ZERO POINTS", "Error :weary: user not found in database", "You have to bump before checking level... lmao human"]))
+                else:
+                    await ctx.respond("Sorry, can't find your entry")
 
     @commands.command()
     async def bump_rewards(self, ctx):
