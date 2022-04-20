@@ -1,14 +1,10 @@
-import discord
 from discord import Bot
-from discord.commands import slash_command, SlashCommandGroup
+from discord.commands import SlashCommandGroup
 from discord.ext import commands
-from discord.utils import get
 import os
 import mysql.connector
 from dotenv import load_dotenv
-from random import choice
 from discord import AllowedMentions
-from numpy import full
 PROD_GUILD = 867597533458202644
 
 load_dotenv()
