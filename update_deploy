@@ -4,6 +4,9 @@
 # Copied from my newYearResolutionBot and automation repos
 # https://github.com/TechWiz-3/automation/blob/main/docker-automation/run_container
 
+# Backlogs: switch to force only pushing, switch to specify run name, switch to specify tag name, function for the docker run thingy
+# Backlogs: docker hub integration, pull and build and run
+
 set -o errexit  # exits if an error occurs
 
 seperate="------------------------------------------------------------------------"
@@ -50,6 +53,36 @@ echo $seperate
 sleep 1
 echo "${bold}DOCKER RUN${reset}"
 sudo docker run -d --name RowanBot --network="host" --env-file ./env.list "$tag"
+if [[ $? -eq 125 ]] ; then
+    echo $seperate
+    echo -n "IF the above error says that your selected container name is already taken up then press [y] otherwise press [n]"
+    read error_is_same_name
+    if [[ "$error_is_same_name" == "y" ]] ; then
+        echo -n "Would you like to run the docker run command again but change the name of the container? [y/n]"
+        read change_cont_name
+        if [[ "$change_cont_name" == "y" ]] ; then
+            echo -n "New container name: "
+            read new_cont_name
+            sleep 2  # affords some time for a Ctrl-C if a mistake occured
+            echo $seperate
+            sleep 1
+            echo "${bold}DOCKER RUN${reset}"
+            sudo docker run -d --name "$new_cont_name" --network="host" --env-file ./env.list "$tag"
+        else   
+            echo $seperate
+            echo "Information about the container with the same name:"
+            sudo docker ps --filter "RowanBot"
+            echo -n "Would you like to delete it? [y/n]"
+            read delete_dupl_cont
+            if [[ "$delete_dupl_cont" == "y" ]] ; then
+                echo -n "Please enter container ID as show above, for deletion: "
+                read dupl_cont_id
+                sudo docker rm "$dupl_cont_id"
+                # in the future, use sed for this
+            fi
+        fi
+    fi
+fi
 
 sleep 1
 echo $seperate
