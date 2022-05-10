@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Created by Zac the Wise
+# Copied from my newYearResolutionBot and automation repos
+# https://github.com/TechWiz-3/automation/blob/main/docker-automation/run_container
+
+set -o errexit  # exits if an error occurs
+
+seperate="------------------------------------------------------------------------"
+
+black_green=$(tput setaf 2 && tput setab 0)  # green foreground black background
+reset=$(tput sgr0)      # resets the entire look
+emphasise=$(tput smso)  # emphasis affect
+bold=$(tput bold)       # bold affect
+yellow=$(tput setaf 3)  # yellow foreground
+purple=$(tput setaf 5)  # purple foreground
+
+clear
+echo -e "${emphasise}${black_green}Update+run container script created by ${yellow}Zac the Wise ${purple}for simple docker automation\n"
+echo $reset"Alrighttyyy, assuming we're in the repo root folder let's get going."
+sleep 1
+
+echo $seperate
+sleep 1
+echo -n "Git pull? [y/n]: "
+read pull_ans
+if [ "$pull_ans" == "y" ] ; then
+    echo $seperate
+    echo "GIT PULL"
+    sleep 1
+    git pull
+    sleep 1
+    echo $seperate
+fi
+
+echo -n "Enter the tag you wish to use: "
+read tag
+
+echo "Your tag: $tag"  # if you enter the wrong tag, the sleep will allow an easy Ctrl-C
+sleep 2
+
+echo $seperate
+sleep 1
+echo "${bold}DOCKER BUILD${reset}"
+sudo docker build --tag "$tag" .
+
+echo $seperate
+sleep 1
+echo "${bold}DOCKER RUN${reset}"
+sudo docker run -d --name RowanBot --network="host" --env-file ./env.list "$tag"
+
+sleep 1
+echo $seperate
+echo "Thank you, happy goalbot-ing"
