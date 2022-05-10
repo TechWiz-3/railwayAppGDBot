@@ -74,13 +74,16 @@ if [[ $err_no -eq 125 ]] ; then
             echo "Information about the container with the same name:"
             sleep 1
             sudo docker ps --filter "name=RowanBot"
-            echo -n "Would you like to delete it? [y/n]"
+            echo $seperate
+            echo -n "Would you like to delete it? [y/n] "
             read delete_dupl_cont
             if [[ "$delete_dupl_cont" == "y" ]] ; then
                 # in the future, use sed and docker ps to get the container ID for deletion
-                echo -n "Please enter container ID as show above, for deletion: "
+                echo -n "Please enter container ID as shown above, for deletion: "
                 read dupl_cont_id
+                sudo docker stop "$dupl_cont_id"
                 sudo docker rm "$dupl_cont_id"
+                sleep 2
                 echo "Initiating docker run command in 2 seconds"
                 sleep 2
                 echo $seperate
