@@ -1,5 +1,6 @@
 #   background task - role counter and displayer, buttons
 #   birthday system
+from tkinter import image_names
 from typing import final
 import discord
 import asyncio
@@ -24,6 +25,7 @@ PROD_GUILD = 867597533458202644
 load_dotenv()
 token = os.getenv("token")
 password = os.getenv("password")
+P_KEY = os.getenv("P_KEY")
 
 mydb = mysql.connector.connect(
   host="containers-us-west-23.railway.app",
@@ -251,9 +253,36 @@ async def role_all(ctx, role: Option(discord.Role, 'The role you wish to give to
     else:
         await ctx.respond("Nice try but not gonna work ;) you gotta have permmmmssss for this commands")
 
+@bot.slash_command(guild_ids=[867597533458202644, 864687623439384617])
+@commands.cooldown(1, 60, commands.BucketType.channel)
+async def landscape_photo(ctx):
+    """present a beautiful landscape photograph"""
+    #try:
+    go_ahead = random.randint(1,4)
+    if go_ahead == 1:
+        await ctx.respond(f"You thought you'd get a landscape photo on a *{ctx.guild.name}* server?? HA\nhttps://upload.wikimedia.org/wikipedia/commons/b/ba/Planche.jpg")
+    else:
+        link=f'https://pixabay.com/api/?key={P_KEY}&q=landscape&image_type=photo&per_page=150'
+        p_request = requests.get(link)
+        rand_int = random.randint(1, 149)
+        json_info = p_request.content
+        loaded_json = json.loads(json_info)
+        image_url = loaded_json["hits"][rand_int]["largeImageURL"]
+        await ctx.respond(str(image_url))
+    #except commands.CommandOnCooldown:
+
 
 @bot.event
 async def on_command_error(ctx,error):
+    if isinstance(error, commands.CommandOnCooldown):
+        errorMsg = '**Still on cooldown, please try again in {:.2f}s**'.format(error.retry_after)
+        rowanMsg = random.choice(onCoolDownResponse)
+        async with ctx.typing():
+            await asyncio.sleep(3)
+        await ctx.send(f'{errorMsg}\n{rowanMsg}')
+
+@bot.event
+async def on_application_command_error(ctx,error):
     if isinstance(error, commands.CommandOnCooldown):
         errorMsg = '**Still on cooldown, please try again in {:.2f}s**'.format(error.retry_after)
         rowanMsg = random.choice(onCoolDownResponse)
@@ -506,7 +535,7 @@ async def on_raw_reaction_add(info):
         if info.emoji.name == "beluga":
             await info.member.send(f"You have received the Pets role and now have access to <#874471834370850826>\nEnjoy :grinning:")
         elif info.emoji.name == "python":
-            hack_emoji = discord.utils.get(bot.emojis, name='pepe_hack')
+            hack_emoji = get(bot.emojis, name='pepe_hack')
             await info.member.send(f"You have received the Coders role and now have access to <#887197847240446004>\nEnjoy {hack_emoji}")
         elif info.emoji.name == "😋":
             await info.member.send(f"You have received the Nutrition role and now have access to <#910012458943533057>\nEnjoy :yum: :leafy_green:")
@@ -521,10 +550,10 @@ async def on_member_join(member):
             welcome_channel = server.get_channel(867600090541981706) # gets channel
         except:
             print("Getting either the server or welcome channel for a welcome message didn't work :(")
-        coolblob = discord.utils.get(bot.emojis, name='coolblob')
-        wumpus = discord.utils.get(bot.emojis, name='wumpusye')
-        koala = discord.utils.get(bot.emojis, name='koalawave')
-        happytalk = discord.utils.get(bot.emojis, name='happytalk')
+        coolblob = get(bot.emojis, name='coolblob')
+        wumpus = get(bot.emojis, name='wumpusye')
+        koala = get(bot.emojis, name='koalawave')
+        happytalk = get(bot.emojis, name='happytalk')
         welcome_team = server.get_role(876990087429226536)
         await welcome_channel.send(f"Welcome {member.mention} {wumpus} {koala}\n\n{welcome_team.mention} make our new Gravity Destroyer feel welcome {coolblob}\n\nLet's talk in <#867597533458202647> {happytalk}", allowed_mentions = discord.AllowedMentions.all())
 
