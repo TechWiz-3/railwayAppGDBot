@@ -1,24 +1,19 @@
 #   background task - role counter and displayer, buttons
 #   birthday system
-from tkinter import image_names
-from typing import final
 import discord
 import asyncio
 import random
-import aiohttp
 import time
 import json
-from discord.utils import get
 import requests
-from discord.ext import commands
-from dotenv import load_dotenv
 import os
 import mysql.connector
-from discord import AllowedMentions
-from discord.commands import Option, SlashCommandGroup, slash_command
-from discord.commands import slash_command, SlashCommandGroup
-from discord.commands import Option
 from discord.ext import commands
+from dotenv import load_dotenv
+from discord import AllowedMentions
+from discord.commands import Option, slash_command, SlashCommandGroup
+from discord.commands import slash_command
+from discord.utils import get
 
 PROD_GUILD = 867597533458202644
 
