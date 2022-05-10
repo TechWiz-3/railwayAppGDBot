@@ -8,12 +8,14 @@ set -o errexit  # exits if an error occurs
 
 seperate="------------------------------------------------------------------------"
 
-black_green=$(tput setaf 2 && tput setab 0)  # green foreground black background
-reset=$(tput sgr0)      # resets the entire look
-emphasise=$(tput smso)  # emphasis affect
-bold=$(tput bold)       # bold affect
-yellow=$(tput setaf 3)  # yellow foreground
-purple=$(tput setaf 5)  # purple foreground
+if [[ $(which tput) ]] ; then
+    black_green=$(tput setaf 2 && tput setab 0)  # green foreground black background
+    reset=$(tput sgr0)      # resets the entire look
+    emphasise=$(tput smso)  # emphasis affect
+    bold=$(tput bold)       # bold affect
+    yellow=$(tput setaf 3)  # yellow foreground
+    purple=$(tput setaf 5)  # purple foreground
+fi
 
 clear
 echo -e "${emphasise}${black_green}Update+run container script created by ${yellow}Zac the Wise ${purple}for simple docker automation\n"
