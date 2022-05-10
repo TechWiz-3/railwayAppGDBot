@@ -75,10 +75,16 @@ if [[ $? -eq 125 ]] ; then
             echo -n "Would you like to delete it? [y/n]"
             read delete_dupl_cont
             if [[ "$delete_dupl_cont" == "y" ]] ; then
+                # in the future, use sed and docker ps to get the container ID for deletion
                 echo -n "Please enter container ID as show above, for deletion: "
                 read dupl_cont_id
                 sudo docker rm "$dupl_cont_id"
-                # in the future, use sed for this
+                echo "Initiating docker run command in 2 seconds"
+                sleep 2
+                echo $seperate
+                sleep 1
+                echo "${bold}DOCKER RUN${reset}"
+                sudo docker run -d --name "$new_cont_name" --network="host" --env-file ./env.list "$tag"
             fi
         fi
     fi
