@@ -55,10 +55,10 @@ echo "${bold}DOCKER RUN${reset}"
 sudo docker run -d --name RowanBot --network="host" --env-file ./env.list "$tag" || err_no=$?
 if [[ $err_no -eq 125 ]] ; then
     echo $seperate
-    echo -n "IF the above error says that your selected container name is already taken up then press [y] otherwise press [n]"
+    echo -n "IF the above error says that your selected container name is already taken up then press [y] otherwise press [n] "
     read error_is_same_name
     if [[ "$error_is_same_name" == "y" ]] ; then
-        echo -n "Would you like to run the docker run command again but change the name of the container? [y/n]"
+        echo -n "Would you like to run the docker run command again but change the name of the container? [y/n] "
         read change_cont_name
         if [[ "$change_cont_name" == "y" ]] ; then
             echo -n "New container name: "
@@ -70,8 +70,10 @@ if [[ $err_no -eq 125 ]] ; then
             sudo docker run -d --name "$new_cont_name" --network="host" --env-file ./env.list "$tag"
         else   
             echo $seperate
+            sleep 1
             echo "Information about the container with the same name:"
-            sudo docker ps --filter "RowanBot"
+            sleep 1
+            sudo docker ps --filter "name=RowanBot"
             echo -n "Would you like to delete it? [y/n]"
             read delete_dupl_cont
             if [[ "$delete_dupl_cont" == "y" ]] ; then
@@ -87,6 +89,8 @@ if [[ $err_no -eq 125 ]] ; then
                 sudo docker run -d --name "$new_cont_name" --network="host" --env-file ./env.list "$tag"
             fi
         fi
+    else
+        echo -e "No error handling for this exception at the current time, however we would REALLY appreciate it if you reported the issue here https://github.com/TechWiz-3/automation and explain the error, why it occured (if you know) and what would prefer the script do. If you're a more hands on person we'd love it if pull request"
     fi
 fi
 
