@@ -89,7 +89,7 @@ if [[ $err_no -eq 125 ]] ; then
                 echo $seperate
                 sleep 1
                 echo "${bold}DOCKER RUN${reset}"
-                sudo docker run -d --name "$new_cont_name" --network="host" --env-file ./env.list "$tag"
+                sudo docker run -d --name "$RowanBot" --network="host" --env-file ./env.list "$tag"
             fi
         fi
     else
