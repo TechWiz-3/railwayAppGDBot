@@ -7,6 +7,9 @@ from dotenv import load_dotenv
 from discord import AllowedMentions
 PROD_GUILD = 867597533458202644
 
+
+# add closing of cursor
+
 load_dotenv()
 token = os.getenv("token")
 password = os.getenv("password")
@@ -23,7 +26,7 @@ def connect_db():
     global mycursor
     mycursor = mydb.cursor()
 
-connect_db()
+
 
 class Bump(commands.Cog):
     def __init__(self, bot):
@@ -34,6 +37,7 @@ class Bump(commands.Cog):
     @bump.command()
     async def level(self, ctx):
         """Shows you your bump points"""
+        connect_db()
         try:
             mydb.commit()
             entry_exists = False
@@ -52,8 +56,7 @@ class Bump(commands.Cog):
                     await ctx.respond(f"You have `{points}` bumps") # add funny response here
                     #await ctx.respond(choice([f"You want me to show you how many bump points you got? no way lmao", "ZERO POINTS", "Error :weary: user not found in database", "You have to bump before checking level... lmao human"]))
                 else:
-                    await ctx.respond("Sorry, can't find your entry")
-                
+                    await ctx.respond("Sorry, can't find your entry") 
             except Exception as error: 
                 print(error)
                 await ctx.respond(f"Sorry error occured :(\n{error}")
@@ -81,6 +84,8 @@ class Bump(commands.Cog):
                     #await ctx.respond(choice([f"You want me to show you how many bump points you got? no way lmao", "ZERO POINTS", "Error :weary: user not found in database", "You have to bump before checking level... lmao human"]))
                 else:
                     await ctx.respond("Sorry, can't find your entry")
+        mycursor.close()
+        mydb.close()
 
     @commands.command()
     async def bump_rewards(self, ctx):
