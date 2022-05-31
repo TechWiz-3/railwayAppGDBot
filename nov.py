@@ -29,7 +29,6 @@ mydb = mysql.connector.connect(
   database="railway",
   port="6499"
 )
-mycursor = mydb.cursor()
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣿⣿⣷⣶⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣾⣿⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀
@@ -321,6 +320,7 @@ async def on_message(message):
             if message.content == ":flushed:":
                 await message.channel.send("So um how are you today Adrienne?")
         if "Thank you for bumping our Server! If you haven't already, please go to" in message.content and message.author.id == 735147814878969968 or message.author.id == 760345587802964010 and message.content == "Rowan pls bump test":
+            mycursor = mydb.cursor()
             bumper = message.mentions
             bumperId = ""
             bumperName = ""
@@ -397,6 +397,7 @@ async def on_message(message):
                         f"{random.choice(bumper_message)}\nYou now have {newPoints} points\n`.bump_rewards` `/bumping_rewards`",
                         allowed_mentions = AllowedMentions.none()
                             )
+            mycursor.close()
 
         # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
         #     await message.channel.send(
@@ -556,6 +557,7 @@ async def on_member_join(member):
 @bot.slash_command(guild_ids=[PROD_GUILD])
 async def bump_leaderboard(ctx):
     """Shows bumping leaderboard... maybe"""
+    mycursor = mydb.cursor()
     mydb.commit()
     lb_list = []
     final_msg = ""
