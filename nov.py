@@ -602,6 +602,7 @@ async def bump_leaderboard(ctx):
             await ctx.channel.send('Board timed out', delete_after = 5.0)
         else:
             await message.edit(content = f"{final_msg}", allowed_mentions = AllowedMentions.none())
+    mycursor.close()
 
 bot.add_command(helperping)
 bot.add_command(compliment)
