@@ -19,16 +19,16 @@ PROD_GUILD = 867597533458202644
 
 load_dotenv()
 token = os.getenv("token")
-password = os.getenv("password")
-P_KEY = os.getenv("P_KEY")
-
-mydb = mysql.connector.connect(
-  host="containers-us-west-23.railway.app",
-  user="root",
-  password=password, # sus person, why are you reading this line??
-  database="railway",
-  port="6499"
-)
+#password = os.getenv("password")
+#P_KEY = os.getenv("P_KEY")
+#
+#mydb = mysql.connector.connect(
+#  host="containers-us-west-23.railway.app",
+#  user="root",
+#  password=password, # sus person, why are you reading this line??
+#  database="railway",
+#  port="6499"
+#)
 
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣿⣿⣷⣶⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣾⣿⣿⡿⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀
@@ -319,87 +319,7 @@ async def on_message(message):
         if message.author.id == 931377734821773413:
             if message.content == ":flushed:":
                 await message.channel.send("So um how are you today Adrienne?")
-        if "Thank you for bumping our Server! If you haven't already, please go to" in message.content and message.author.id == 735147814878969968 or message.author.id == 760345587802964010 and message.content == "Rowan pls bump test":
-            mycursor = mydb.cursor()
-            bumper = message.mentions
-            bumperId = ""
-            bumperName = ""
-            entryExists = False
-            numberOfPoints = 1
-            for user in bumper:
-                bumperId = user.id
-                bumperName = user.name
-            findIfEntryExists = "SELECT points FROM bumping WHERE userId = %s"
-            values = (bumperId,)
-            mycursor.execute(findIfEntryExists, values)
-            for entry in mycursor:
-                print("true triggered")
-                entryExists = True
-                numberOfPoints, = entry
-            if entryExists == False:
-                insertBump = "INSERT INTO bumping (userId, username, points) VALUES (%s, %s, %s)"
-                values = (bumperId, bumperName, 1)
-                mycursor.execute(insertBump, values)
-                mydb.commit()
-                await message.channel.send(f"Ayo bro, thanks a lot for bumping YOUR FIRST BUMP <3 you now have 1 point\n`.bump_rewards` `/bumping_rewards`")
-            elif entryExists == True:
-                newPoints = int(numberOfPoints) + 1
-                updateNumberOfPoints = "UPDATE bumping SET points = %s WHERE userId = %s"
-                values = (newPoints, bumperId)
-                mycursor.execute(updateNumberOfPoints, values)
-                mydb.commit()
-                server = bot.get_guild(867597533458202644)
-                bumper_object = server.get_member(int(bumperId))
-                if newPoints == 5:
-                    await bumper_object.add_roles(discord.Object(929992167949209601))
-                    await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n:trophy: You've also earned the <@&929992167949209601> role :)",
-                        allowed_mentions = AllowedMentions.none()
-                            )
-                elif newPoints == 15:
-                    await bumper_object.add_roles(discord.Object(929992275302432808))
-                    await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992275302432808> role :)",
-                        allowed_mentions = AllowedMentions.none()
-                            )
-                elif newPoints == 30:
-                    await bumper_object.add_roles(discord.Object(929992208826892298))
-                    await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992208826892298> role :)",
-                        allowed_mentions = AllowedMentions.none()
-                            )
-                elif newPoints == 50: #50
-                    await bumper_object.add_roles(discord.Object(929992243270537256))
-                    await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992243270537256> role :)",
-                        allowed_mentions = AllowedMentions.none()
-                            )
-                elif newPoints == 75:
-                    await bumper_object.add_roles(discord.Object(929992377706369034))
-                    await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992377706369034> role :)",
-                        allowed_mentions = AllowedMentions.none()
-                            )
-                elif newPoints == 105:
-                    await bumper_object.add_roles(discord.Object(929992347876479006))
-                    await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992347876479006> role :)",
-                        allowed_mentions = AllowedMentions.none()
-                            )
-                elif newPoints == 140:
-                    await bumper_object.add_roles(discord.Object(929992418915405875))
-                    await message.channel.send(
-                        f"Ayo bro, thanks a lot for bumping <3 you now have {newPoints} points\n\n:trophy: You've also earned the <@&929992418915405875> role :)",
-                        allowed_mentions = AllowedMentions.none()
-                            )
-                else:
-                    await message.channel.send(
-                        f"{random.choice(bumper_message)}\nYou now have {newPoints} points\n`.bump_rewards` `/bumping_rewards`",
-                        allowed_mentions = AllowedMentions.none()
-                            )
-            mycursor.close()
-
-        # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
+                # if "wrist" in message.content.lower() and ("pain", "injury") in message.content.lower():
         #     await message.channel.send(
         #         'https://cdn.discordapp.com/attachments/867599113825812481/927822953868046336/sign.png'
         #             )
@@ -554,58 +474,8 @@ async def on_member_join(member):
         await welcome_channel.send(f"Welcome {member.mention} {wumpus} {koala}\n\n{welcome_team.mention} make our new Gravity Destroyer feel welcome {coolblob}\n\nLet's talk in <#867597533458202647> {happytalk}", allowed_mentions = discord.AllowedMentions.all())
 
 
-@bot.slash_command(guild_ids=[PROD_GUILD])
-async def bump_leaderboard(ctx):
-    """Shows bumping leaderboard... maybe"""
-    mycursor = mydb.cursor()
-    mydb.commit()
-    lb_list = []
-    final_msg = ""
-    second_page = ""
-    full = {}
-    get_lb = "SELECT userId, points FROM bumping"
-    mycursor.execute(get_lb)
-    await ctx.respond("**Bump Leaderboard**\n➡️ and ⬅️ to move forward and back")
-    for entry in mycursor:
-        user_id, points = entry
-        lb_list.append(int(points))
-        for point in lb_list:
-            full[user_id] = point
-            #final_msg += f"{member}\t{point}" 
-    sort_orders = sorted(full.items(), key=lambda x: x[1], reverse=True)
-    counter = 0
-    for i in sort_orders:
-        counter += 1
-        if counter <=10:
-            final_msg += f"`{i[1]}`\t<@{i[0]}>\n"
-        else:
-            second_page += f"<@{i[0]}>\t`{i[1]}`\n"            
-    message = await ctx.send(f"{final_msg}", allowed_mentions = AllowedMentions.none())
-    
-    def check(reaction, user):
-            return user == ctx.author and str(reaction.emoji) == '➡️'
-    def check2(reaction, user):
-            return user == ctx.author and str(reaction.emoji) == '⬅️'
-    await message.add_reaction("⬅️")
-    await message.add_reaction("➡️")
-    t_end = time.time() + 60 * 15
-    while time.time() < t_end:
-        try:
-            reaction, user = await bot.wait_for('reaction_add', check=check)
-        except asyncio.TimeoutError:
-            await ctx.channel.send('Board timed out', delete_after = 5.0)
-        else:
-            await message.edit(content = f"{second_page}")
-        try:
-            reaction, user = await bot.wait_for('reaction_add', check=check2, timeout = 60.0)
-        except asyncio.TimeoutError:
-            await ctx.channel.send('Board timed out', delete_after = 5.0)
-        else:
-            await message.edit(content = f"{final_msg}", allowed_mentions = AllowedMentions.none())
-    mycursor.close()
 
 bot.add_command(helperping)
 bot.add_command(compliment)
 bot.add_command(about)
-bot.load_extension('cogs.bump')
 bot.run(token)
